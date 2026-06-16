@@ -28,15 +28,19 @@
    },
    {
     "title": "1oz Gold Bar \u2013 Valcambi (In Assay)",
-    "price": "as low as $2,365.00",
+    "price": "as low as $4,423.53",
     "img": "https://bcbullion.com/wp-content/uploads/2021/04/IMG_4866.jpeg",
-    "local": "/assets/catalog/gold/4.jpeg"
+    "local": "/assets/catalog/gold/4.jpeg",
+    "price_estimate": true,
+    "price_note": "ESTIMATE set 2026-06-16 \u2014 the live bcbullion.com price was STALE (below spot melt, i.e. unsellable). Re-priced relative to comparable in-catalog products at then-current spot (gold $4,333/oz, silver $70/oz). CONFIRM ACTUAL PRICE WITH BOONE before this goes live. Premium ~+2.1%, in line with his Scottsdale/Tombstone 1 oz gold bars. (was 'as low as $2,365.00')"
    },
    {
     "title": "2017  Barbados Trident  1/5oz Gold Coin",
-    "price": "as low as $383.00",
+    "price": "as low as $979.16",
     "img": "https://bcbullion.com/wp-content/uploads/2020/03/17-trident-fifthOZ-front-capsule.jpg",
-    "local": "/assets/catalog/gold/5.jpg"
+    "local": "/assets/catalog/gold/5.jpg",
+    "price_estimate": true,
+    "price_note": "ESTIMATE set 2026-06-16 \u2014 the live bcbullion.com price was STALE (below spot melt, i.e. unsellable). Re-priced relative to comparable in-catalog products at then-current spot (gold $4,333/oz, silver $70/oz). CONFIRM ACTUAL PRICE WITH BOONE before this goes live. Premium ~+13% on 0.2 oz melt (fractional gold runs higher than 1 oz; a 2017 dated coin may be semi-numismatic \u2014 verify, likely a floor). (was 'as low as $383.00')"
    },
    {
     "title": "Scottsdale Gold Kilo",
@@ -57,9 +61,11 @@
    },
    {
     "title": "1 oz American Silver Eagle (Random Years)",
-    "price": "as low as $29.20",
+    "price": "as low as $82.67",
     "img": "https://bcbullion.com/wp-content/uploads/2017/08/sae.jpg",
-    "local": "/assets/catalog/silver/1.jpg"
+    "local": "/assets/catalog/silver/1.jpg",
+    "price_estimate": true,
+    "price_note": "ESTIMATE set 2026-06-16 \u2014 the live bcbullion.com price was STALE (below spot melt, i.e. unsellable). Re-priced relative to comparable in-catalog products at then-current spot (gold $4,333/oz, silver $70/oz). CONFIRM ACTUAL PRICE WITH BOONE before this goes live. Premium ~+18% (his 2 oz round is +15.6%; Eagles typically carry a higher govt-coin premium \u2014 likely a floor). (was 'as low as $29.20')"
    },
    {
     "title": "10 oz Scottsdale \u201cChunky\u201d Cast Bar",
@@ -263,5 +269,6 @@
     "local": "/assets/catalog/biblical-coins/12.jpg"
    }
   ]
- }
+ },
+ "_NOTE_PRICING": "Most prices are scraped live from bcbullion.com (spot-linked). Items with price_estimate=true had STALE below-melt prices on the source site and were re-estimated relative to comparable products \u2014 CONFIRM with Boone. See each item's price_note."
 }
