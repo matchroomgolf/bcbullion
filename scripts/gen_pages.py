@@ -1,0 +1,272 @@
+# -*- coding: utf-8 -*-
+import os
+OUT = os.path.expanduser('~/bc-deploy/bcbullion')
+
+CSS = """
+  :root{--cream:#F6F2E9;--navy:#0E1B2C;--navy2:#0A1422;--navy3:#08111E;--gold:#C6A04A;--gold-soft:#F0D89B;--crimson:#A11D22;--ink:#2A2A24;--muted:#6E6A5C;--line:#ECE4D2;--d-text:#C7D2DF;--d-muted:#9FB0C3;--d-faint:#7E90A6;}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--cream);color:var(--ink);font-family:'Inter',system-ui,-apple-system,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .util{background:var(--navy2);color:var(--d-muted);font-size:12.5px;letter-spacing:.2px;border-bottom:1px solid rgba(198,160,74,.16)}
+  .util-in{max-width:1060px;margin:0 auto;padding:8px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .util .star{color:var(--gold)}
+  .util a{color:#E8DFC9;text-decoration:none;font-weight:600;letter-spacing:.3px}
+  header{position:sticky;top:0;z-index:60;background:rgba(14,27,44,.97);backdrop-filter:blur(10px);border-bottom:1px solid rgba(198,160,74,.22);box-shadow:0 8px 30px rgba(8,16,28,.28)}
+  .hdr-in{max-width:1060px;margin:0 auto;padding:15px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  .brand{display:flex;align-items:center;gap:13px;text-decoration:none}
+  .brand .mark{font-family:'Cinzel',serif;font-weight:800;font-size:22px;letter-spacing:1px;color:var(--cream)}
+  .brand .mark b{color:var(--gold)}
+  .brand .tag{display:flex;align-items:center;height:28px;padding-left:13px;border-left:1px solid rgba(198,160,74,.3);font-size:9px;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase;max-width:110px;line-height:1.5}
+  nav.main{display:flex;align-items:center;gap:22px}
+  nav.main a{color:var(--d-text);text-decoration:none;font-size:13.5px;font-weight:500;letter-spacing:.2px;padding:6px 0;border-bottom:1.5px solid transparent;transition:color .2s,border-color .2s}
+  nav.main a:hover{color:#fff;border-bottom-color:rgba(198,160,74,.5)}
+  nav.main a.active{color:var(--gold);border-bottom-color:var(--gold)}
+  .cta{background:linear-gradient(135deg,var(--gold-soft),var(--gold) 55%,#9C7A2E);color:var(--navy);font-weight:700;font-size:13px;padding:10px 20px;border-radius:8px;text-decoration:none;letter-spacing:.3px}
+  .band{background:radial-gradient(120% 120% at 80% 0%,#173050 0%,var(--navy) 55%,var(--navy2) 100%);color:var(--cream);border-bottom:1px solid rgba(198,160,74,.22)}
+  .band-in{max-width:1060px;margin:0 auto;padding:60px 24px 52px}
+  .eyebrow{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:14px}
+  .band h1{font-family:'Cinzel',serif;font-weight:800;font-size:clamp(34px,5vw,52px);line-height:1.05;letter-spacing:.5px;margin-bottom:16px}
+  .band p{font-size:16px;color:#BFCBDA;max-width:640px}
+  .wrap{max-width:1060px;margin:0 auto;padding:54px 24px 30px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:clamp(26px,4vw,48px);box-shadow:0 10px 30px rgba(14,27,44,.06)}
+  .card+.card{margin-top:26px}
+  .card section+section{margin-top:32px;padding-top:32px;border-top:1px solid var(--line)}
+  .card h2{font-family:'Cinzel',serif;font-weight:700;font-size:22px;color:var(--navy);margin-bottom:14px;display:flex;align-items:center;gap:11px}
+  .card h2 .dot{color:var(--gold);font-size:13px}
+  .card p{color:#54503F;font-size:15.5px;margin-bottom:13px}
+  .card p:last-child{margin-bottom:0}
+  .lead{font-size:17px;color:#3C3930}
+  .card a.inline{color:#8A6D24;text-decoration:underline;font-weight:600}
+  .vals{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:6px}
+  .val{display:flex;gap:14px;align-items:flex-start}
+  .val .vi{flex-shrink:0;width:38px;height:38px;border-radius:9px;background:linear-gradient(135deg,#FBF4E2,#F2E6C8);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:#9C7A2E;font-size:15px}
+  .val h3{font-size:15px;font-weight:600;color:var(--navy);margin-bottom:3px}
+  .val p{font-size:13.5px;color:#6E6A5C;margin:0;line-height:1.5}
+  details.faq{border:1px solid var(--line);border-radius:13px;padding:0;margin-bottom:12px;background:#fff;overflow:hidden}
+  details.faq summary{list-style:none;cursor:pointer;padding:20px 22px;font-weight:600;font-size:15.5px;color:var(--navy);display:flex;align-items:center;justify-content:space-between;gap:14px}
+  details.faq summary::-webkit-details-marker{display:none}
+  details.faq summary .pm{color:var(--gold);font-size:22px;font-weight:400;line-height:1;transition:transform .2s}
+  details.faq[open] summary .pm{transform:rotate(45deg)}
+  details.faq .ans{padding:0 22px 20px;color:#54503F;font-size:14.5px;line-height:1.6}
+  .ct-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-bottom:8px}
+  .ct{display:block;background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px;text-decoration:none;transition:border-color .2s,box-shadow .2s}
+  .ct:hover{border-color:var(--gold);box-shadow:0 10px 26px rgba(14,27,44,.08)}
+  .ct .k{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:9px}
+  .ct .v{font-family:'Cinzel',serif;font-size:24px;font-weight:700;color:var(--navy)}
+  .ct .s{font-size:13px;color:#6E6A5C;margin-top:6px}
+  .frm{display:grid;gap:14px;margin-top:6px}
+  .frm label{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:5px;display:block}
+  .frm input,.frm textarea{width:100%;border:1px solid var(--line);border-radius:10px;padding:13px 15px;font:inherit;font-size:15px;color:var(--ink);background:#FCFAF5}
+  .frm input:focus,.frm textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(198,160,74,.15)}
+  .frm .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .frm button{justify-self:start;background:var(--navy);color:var(--cream);border:none;font:inherit;font-weight:600;font-size:15px;padding:14px 30px;border-radius:9px;cursor:pointer;letter-spacing:.3px}
+  .frm button:hover{background:#16263C}
+  .note{margin:22px auto 0;max-width:1060px;padding:0 24px;font-size:12.5px;color:var(--muted);line-height:1.55;text-align:center}
+  .verse{text-align:center;margin:40px auto 0;max-width:1060px;padding:0 24px}
+  .verse p{font-family:'Cinzel',serif;font-style:italic;font-size:18px;color:#8A6D24;line-height:1.5}
+  .verse .ref{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-top:12px}
+  footer{background:var(--navy3);color:var(--d-muted);margin-top:48px}
+  .foot-in{max-width:1060px;margin:0 auto;padding:54px 24px 0}
+  .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:40px}
+  .foot .mark{font-family:'Cinzel',serif;font-weight:800;font-size:22px;letter-spacing:1px;color:var(--cream)}
+  .foot .mark b{color:var(--gold)}
+  .foot .ftag{font-size:9px;color:var(--gold);letter-spacing:2.5px;margin-top:10px;text-transform:uppercase}
+  .foot p.blurb{font-size:13px;line-height:1.6;color:var(--d-faint);margin:16px 0 18px;max-width:320px}
+  .foot .ci{font-size:13px;line-height:1.95;color:var(--d-muted)}
+  .foot .ci a{color:#E8DFC9;text-decoration:none;font-weight:600}
+  .foot .ci .dim{color:#6E8097}
+  .foot h4{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;font-weight:600}
+  .foot .links{display:flex;flex-direction:column;gap:11px}
+  .foot .links a{color:var(--d-muted);text-decoration:none;font-size:13.5px}
+  .foot .links a:hover{color:#fff}
+  .legal{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:44px;padding:18px 0 30px;border-top:1px solid rgba(255,255,255,.06)}
+  .legal span{font-size:11.5px;color:#5E7088}
+  .legal a{color:var(--d-muted);text-decoration:underline}
+  @media(max-width:760px){.vals,.ct-grid,.foot-grid{grid-template-columns:1fr}.frm .row{grid-template-columns:1fr}.brand .tag{display:none}nav.main{gap:16px;font-size:13px}}
+"""
+
+def header(active):
+    def a(href,label,key):
+        cls=' class="active"' if key==active else ''
+        return f'<a href="{href}"{cls}>{label}</a>'
+    nav=''.join([a('/#category','Shop','shop'),a('/about.html','About','about'),a('/faq.html','FAQ','faq'),a('/contact.html','Contact','contact')])
+    return f"""  <div class="util">
+    <div class="util-in">
+      <span><span class="star">&#9733;</span> Family-owned &middot; 20+ years in precious metals</span>
+      <a href="tel:8505851115">(850) 585-1115</a>
+    </div>
+  </div>
+  <header>
+    <div class="hdr-in">
+      <a class="brand" href="/"><span class="mark">B.C. <b>BULLION</b></span><span class="tag">Your Wealth Starts Here</span></a>
+      <nav class="main">{nav}</nav>
+      <a class="cta" href="/#category">Shop Metals</a>
+    </div>
+  </header>"""
+
+def band(eyebrow,h1,sub):
+    return f"""  <div class="band"><div class="band-in">
+    <div class="eyebrow">{eyebrow}</div>
+    <h1>{h1}</h1>
+    <p>{sub}</p>
+  </div></div>"""
+
+FOOTER = """  <footer><div class="foot-in">
+    <div class="foot-grid">
+      <div>
+        <div class="mark">B.C. <b>BULLION</b></div>
+        <div class="ftag">Your Wealth Starts Here</div>
+        <p class="blurb">Family-owned precious-metals dealer in Northwest Florida. Honest pricing, insured delivery, real people &mdash; for 20+ years.</p>
+        <div class="ci">
+          <div><a href="tel:8505851115">(850) 585-1115</a></div>
+          <div><a href="mailto:hello@bcbullion.com" style="color:#9FB0C3;font-weight:400">hello@bcbullion.com</a></div>
+          <div>Northwest Florida &middot; Online only</div>
+          <div class="dim">Mon&ndash;Fri, 9am&ndash;5pm CT</div>
+        </div>
+      </div>
+      <div><h4>Shop</h4><div class="links">
+        <a href="/#category">Gold</a><a href="/#category">Silver</a><a href="/#category">Graded Coins</a>
+        <a href="/#patriotstackers">Patriot Stackers</a><a href="/#category">Biblical Coins</a><a href="/#ira">Precious-Metals IRA</a>
+      </div></div>
+      <div><h4>Company</h4><div class="links">
+        <a href="/about.html">About B.C.</a><a href="/about.html">Our Story</a><a href="/faq.html">FAQ</a><a href="/contact.html">Contact</a>
+      </div></div>
+    </div>
+    <div class="legal">
+      <span>&copy; 2026 B.C. Bullion. All rights reserved. &middot; <a href="/privacy.html">Privacy Policy</a></span>
+      <span><a href="/">Return to homepage</a></span>
+    </div>
+  </div></footer>"""
+
+def page(title,desc,active,band_html,body_html):
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{title} | B.C. Bullion</title>
+<meta name="description" content="{desc}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>{CSS}</style>
+</head>
+<body>
+{header(active)}
+{band_html}
+{body_html}
+{FOOTER}
+</body>
+</html>"""
+
+def val(icon,t,d):
+    return f'<div class="val"><div class="vi">{icon}</div><div><h3>{t}</h3><p>{d}</p></div></div>'
+
+# ---------------- ABOUT ----------------
+about_body = f"""  <div class="wrap">
+    <div class="card">
+      <section>
+        <p class="lead">B.C. Bullion is a growing, family-owned precious-metals company in Northwest Florida &mdash; online only, with honest pricing and a real person on the other end of the phone.</p>
+      </section>
+      <section>
+        <h2><span class="dot">&#9670;</span>Two decades in the metal</h2>
+        <p>Our co-founders and staff have been in the precious metals industry for over 20 years. What was originally planned as a smaller, one-on-one business has grown tremendously &mdash; led down that path by a single focus: making sure each individual client gets exactly what suits them, in a timely manner, at the best price.</p>
+        <p>We can&rsquo;t out-shout the big warehouses, so we do the opposite. We answer the phone, we quote you straight, and we ship fast and quietly.</p>
+      </section>
+      <section>
+        <h2><span class="dot">&#9670;</span>Why families buy from us</h2>
+        <p>We strongly believe that in this rapidly changing world, every family should have the financial security that owning precious metals can provide. We offer a focused handful of options that appeal to the seasoned stacker and the first-time buyer alike &mdash; from American Gold &amp; Silver Eagles to USA-made Patriot Stackers, graded coins, and our Biblical Coins collection.</p>
+        <div class="vals">
+          {val('&#9670;','Transparent spot-based pricing','Every price ties to the live market &mdash; no hidden markups, no games.')}
+          {val('&#128737;','Fully insured &amp; discreet shipping','Plain, unmarked packaging, signature required, insured door to door.')}
+          {val('&#8635;','Buyback guarantee','We buy back what we sell at fair, live-market pricing &mdash; a standing offer.')}
+          {val('&#128222;','Personal one-on-one service','Talk to a real person who knows your name and your goals. No call centers.')}
+          {val('&#10013;','Faith-informed integrity','Honest weights and honest dealings &mdash; a family business run the way business ought to be done.')}
+          {val('&#127482;','American sound money','Physical gold and silver you hold in your own hands, in your own name.')}
+        </div>
+      </section>
+    </div>
+  </div>
+  <div class="verse"><p>&ldquo;Dishonest money dwindles away, but whoever gathers money little by little makes it grow.&rdquo;</p><div class="ref">&mdash; Proverbs 13:11 &mdash;</div></div>"""
+
+# ---------------- FAQ ----------------
+faqs = [
+ ("Is my information secure?","Yes. Checkout runs over encrypted, PCI-compliant connections, and we never sell or share your information. Every order ships in plain, unmarked packaging with no indication of the contents."),
+ ("How fast do you ship &mdash; and is it insured?","Most in-stock orders leave within 1&ndash;2 business days, fully insured door to door with signature required on delivery. Insured shipping is free on orders over $199."),
+ ("What payment methods do you accept &mdash; and what is the discount?","We accept major cards, bank wire, and personal check. Wire and check orders receive a lower price than card, because we pass the processing savings straight back to you."),
+ ("Do you buy back what you sell?","Always. We offer a standing buyback at fair, live-market pricing. Call us and a real person will walk you through it &mdash; no runaround, no pressure."),
+ ("What metals are IRA-eligible?","IRS-approved gold, silver, platinum and palladium that meet minimum fineness requirements. We help you choose eligible products and coordinate directly with your custodian."),
+ ("How do I place an order?","Shop online and check out securely, or simply call us at (850) 585-1115 and we&rsquo;ll take care of you over the phone &mdash; whichever you prefer."),
+ ("Where are you located?","We&rsquo;re a family-owned dealer based in Northwest Florida, operating online only so we can serve customers across the country."),
+]
+faq_items=''.join([f'<details class="faq"><summary>{q}<span class="pm">+</span></summary><div class="ans">{a}</div></details>' for q,a in faqs])
+faq_body = f"""  <div class="wrap">
+    {faq_items}
+    <div class="card" style="margin-top:26px;text-align:center">
+      <p style="margin-bottom:14px">Still have a question? A real person is glad to help.</p>
+      <a class="cta" href="/contact.html" style="display:inline-block">Contact us</a>
+    </div>
+  </div>"""
+
+# ---------------- CONTACT ----------------
+contact_body = """  <div class="wrap">
+    <div class="ct-grid">
+      <a class="ct" href="tel:8505851115"><div class="k">Call us</div><div class="v">(850) 585-1115</div><div class="s">Mon&ndash;Fri, 9am&ndash;5pm CT</div></a>
+      <a class="ct" href="mailto:hello@bcbullion.com"><div class="k">Email us</div><div class="v">hello@bcbullion.com</div><div class="s">We reply within one business day</div></a>
+    </div>
+    <div class="card">
+      <section>
+        <h2><span class="dot">&#9670;</span>Send us a message</h2>
+        <p>Tell us what you&rsquo;re looking for &mdash; a specific coin or bar, a buyback quote, or help getting started. We&rsquo;ll get right back to you.</p>
+        <form class="frm" onsubmit="event.preventDefault();var f=this;var subj=encodeURIComponent('Website inquiry from '+f.nm.value);var body=encodeURIComponent(f.msg.value+'\\n\\nName: '+f.nm.value+'\\nReply to: '+f.em.value);window.location.href='mailto:hello@bcbullion.com?subject='+subj+'&body='+body;">
+          <div class="row">
+            <div><label>Your name</label><input name="nm" required placeholder="Jane Smith"></div>
+            <div><label>Email</label><input name="em" type="email" required placeholder="you@example.com"></div>
+          </div>
+          <div><label>Message</label><textarea name="msg" rows="5" required placeholder="I'm interested in&hellip;"></textarea></div>
+          <button type="submit">Send message</button>
+        </form>
+        <p style="margin-top:16px;font-size:13px;color:#6E6A5C">Prefer the phone? Call <a class="inline" href="tel:8505851115">(850)&nbsp;585-1115</a> &mdash; a real person, every time.</p>
+      </section>
+      <section>
+        <h2><span class="dot">&#9670;</span>Hours &amp; location</h2>
+        <p><b>Northwest Florida &middot; Online only.</b><br>Monday&ndash;Friday, 9am&ndash;5pm Central. We ship nationwide, fully insured and discreet.</p>
+      </section>
+    </div>
+  </div>"""
+
+# ---------------- PRIVACY (rebuilt with shared chrome) ----------------
+privacy_body = """  <div class="wrap">
+    <div class="card">
+      <section><p class="lead">B.C. Bullion is a family-owned precious-metals dealer in Northwest Florida. We keep our privacy practices as straightforward as our pricing: we collect only what we need to serve you, we protect it, and we never sell it. <span style="color:#8A6D24">Last updated: June 16, 2026.</span></p></section>
+      <section><h2><span class="dot">&#9670;</span>Information we collect</h2>
+        <p><b>Order &amp; contact details</b> &mdash; your name, shipping address, phone number, and email when you place an order or reach out.<br>
+        <b>Price-alert sign-ups</b> &mdash; the email address you give us to receive spot-price alerts and new-arrival notices.<br>
+        <b>Payment information</b> &mdash; processed securely by our payment and bank-wire providers; we do not store full card numbers.<br>
+        <b>Basic site data</b> &mdash; standard, non-identifying analytics that help us keep the site fast and useful.</p></section>
+      <section><h2><span class="dot">&#9670;</span>How we use it</h2>
+        <p>To process, insure, and discreetly ship your order; to send the price alerts you asked for; to provide real, one-on-one customer service; and to meet our legal, tax, and recordkeeping obligations.</p></section>
+      <section><h2><span class="dot">&#9670;</span>What we never do</h2>
+        <p>We never sell, rent, or trade your personal information. We share it only with the partners required to complete what you asked us to do &mdash; an insured carrier to deliver your order, or a payment processor to handle a transaction &mdash; and only the minimum they need.</p></section>
+      <section><h2><span class="dot">&#9670;</span>How we protect it</h2>
+        <p>Our site runs over encrypted (SSL) connections, and checkout is handled through PCI-compliant providers. Every order ships in plain, unmarked packaging with signature required on delivery.</p></section>
+      <section><h2><span class="dot">&#9670;</span>Your choices</h2>
+        <p>Unsubscribe from price alerts anytime via the link in any email. To review, update, or delete the information we hold, call <a class="inline" href="tel:8505851115">(850)&nbsp;585-1115</a> or email <a class="inline" href="mailto:hello@bcbullion.com">hello@bcbullion.com</a> and a real person will take care of it.</p></section>
+    </div>
+  </div>
+  <p class="note">Precious metals carry market risk and can lose value; nothing here is investment, tax, or legal advice.</p>"""
+
+pages = {
+ 'about.html': page('About','Family-owned precious-metals dealer in Northwest Florida with over 20 years in the industry.','about',
+    band('Our Story','About B.C. Bullion','A growing, family-owned precious-metals company built on honest pricing, insured delivery, and real one-on-one service.'), about_body),
+ 'faq.html': page('FAQ','Answers on shipping, insurance, payment, buyback, and IRA-eligible metals from B.C. Bullion.','faq',
+    band('Questions, answered','Frequently Asked','Straight answers on shipping, payment, buyback, and getting started &mdash; and a real person if you need one.'), faq_body),
+ 'contact.html': page('Contact','Call (850) 585-1115 or email hello@bcbullion.com. Family-owned precious-metals dealer, Northwest Florida.','contact',
+    band('Get in touch','Contact B.C. Bullion','A real person, every time. Call, email, or send us a note and we&rsquo;ll get right back to you.'), contact_body),
+ 'privacy.html': page('Privacy Policy','How B.C. Bullion collects, uses, and protects your information.','',
+    band('Legal','Privacy Policy','Your trust matters as much as your metal. Here is what we collect, how we use it, and our simple promise &mdash; we never sell or share your information.'), privacy_body),
+}
+for fn,html in pages.items():
+    open(os.path.join(OUT,fn),'w',encoding='utf-8').write(html)
+    print(f"wrote {fn} ({len(html)} bytes)")
