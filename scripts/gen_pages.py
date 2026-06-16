@@ -101,6 +101,13 @@ CSS = """
   .pinfo h3{font-size:14px;font-weight:600;color:var(--navy);line-height:1.32;margin:0}
   .pprice{font-size:12.5px;color:#6E6A5C;margin-top:auto}.pprice b{font-family:'Cinzel',serif;font-size:16px;color:var(--gold-deep);font-weight:700}
   .porder{font-size:12.5px;font-weight:600;color:var(--gold-deep);letter-spacing:.3px}
+  .video{position:relative;width:100%;padding-bottom:56.25%;height:0;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#000;margin:8px 0 2px}
+  .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .steps{display:flex;flex-direction:column;gap:14px;margin-top:4px}
+  .step{display:flex;gap:16px;align-items:flex-start;background:#FBF8F1;border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+  .step .n{flex-shrink:0;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--gold-soft),var(--gold) 60%,#9C7A2E);color:var(--navy);font-family:'Cinzel',serif;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:15px}
+  .step h3{font-size:15px;font-weight:600;color:var(--navy);margin-bottom:3px}
+  .step p{font-size:13.5px;color:#6E6A5C;margin:0;line-height:1.5}
   @media(max-width:760px){.vals,.ct-grid,.foot-grid{grid-template-columns:1fr}.frm .row{grid-template-columns:1fr}.brand .tag{display:none}nav.main{gap:16px;font-size:13px}.pgrid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}.shopnote{flex-direction:column;align-items:flex-start}}
 """
 
@@ -108,7 +115,7 @@ def header(active):
     def a(href,label,key):
         cls=' class="active"' if key==active else ''
         return f'<a href="{href}"{cls}>{label}</a>'
-    nav=''.join([a('/#category','Shop','shop'),a('/about.html','About','about'),a('/faq.html','FAQ','faq'),a('/contact.html','Contact','contact')])
+    nav=''.join([a('/#category','Shop','shop'),a('/ira.html','IRA','ira'),a('/about.html','About','about'),a('/faq.html','FAQ','faq'),a('/contact.html','Contact','contact')])
     return f"""  <div class="util">
     <div class="util-in">
       <span><span class="star">&#9733;</span> Family-owned &middot; 20+ years in precious metals</span>
@@ -145,7 +152,7 @@ FOOTER = f"""  <footer class="foot"><div class="foot-in">
       </div>
       <div><h4>Shop</h4><div class="links">
         <a href="/gold.html">Gold</a><a href="/silver.html">Silver</a><a href="/graded-coins.html">Graded Coins</a>
-        <a href="/patriot-stackers.html">Patriot Stackers</a><a href="/biblical-coins.html">Biblical Coins</a><a href="/#ira">Precious-Metals IRA</a>
+        <a href="/patriot-stackers.html">Patriot Stackers</a><a href="/biblical-coins.html">Biblical Coins</a><a href="/ira.html">Precious-Metals IRA</a>
       </div></div>
       <div><h4>Company</h4><div class="links">
         <a href="/about.html">About B.C.</a><a href="/about.html">Our Story</a><a href="/faq.html">FAQ</a><a href="/contact.html">Contact</a>
@@ -324,7 +331,38 @@ def category_page(slug,name):
     return page(name, f'Shop {name} at B.C. Bullion — {name} bullion with live spot-based pricing, insured discreet shipping.',
                 'shop', band('Shop', name, f'{sub}. Live spot-based pricing, insured &amp; discreet shipping, real one-on-one service.'), body)
 
+ira_body = """  <div class="wrap">
+    <div class="card">
+      <section>
+        <p class="lead">Hold IRS-approved gold and silver inside a tax-advantaged retirement account &mdash; physical metal, in your name, stored in an insured, IRS-approved depository. We make the setup simple and stay with you through every step.</p>
+      </section>
+      <section>
+        <h2><span class="dot">&#9670;</span>Watch: how a precious-metals IRA works</h2>
+        <p>Want to diversify your IRA? This short video walks through how it works &mdash; from account setup to secure storage.</p>
+        <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/K9UWz3RQpOY" title="Precious Metals IRAs explained" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      </section>
+      <section>
+        <h2><span class="dot">&#9670;</span>How it works</h2>
+        <div class="steps">
+          <div class="step"><div class="n">1</div><div><h3>Open a self-directed IRA</h3><p>We connect you with a trusted custodian and keep the paperwork simple.</p></div></div>
+          <div class="step"><div class="n">2</div><div><h3>Fund &amp; choose metals</h3><p>Transfer or roll over existing funds, then select IRA-eligible gold &amp; silver.</p></div></div>
+          <div class="step"><div class="n">3</div><div><h3>Securely vaulted</h3><p>Your metals are held in an insured, IRS-approved depository in your name.</p></div></div>
+        </div>
+      </section>
+      <section>
+        <h2><span class="dot">&#9670;</span>What&rsquo;s IRA-eligible?</h2>
+        <p>IRS-approved gold, silver, platinum and palladium that meet minimum fineness requirements. We help you choose eligible products and coordinate directly with your custodian.</p>
+      </section>
+      <section style="text-align:center;border-top:1px solid var(--line);padding-top:32px">
+        <a class="cta" href="tel:8505851115" style="display:inline-block">Call (850) 585-1115 to get started</a>
+        <p style="margin-top:14px;font-size:12.5px;color:#6E6A5C">We coordinate directly with your custodian. Nothing here is investment, tax, or legal advice.</p>
+      </section>
+    </div>
+  </div>"""
+
 pages = {
+ 'ira.html': page('Gold &amp; Silver IRA','Diversify your retirement with IRS-approved physical gold and silver. B.C. Bullion makes a precious-metals IRA simple.','ira',
+    band('Precious-metals IRA','Gold &amp; Silver IRAs','Diversify your retirement with physical metals &mdash; held in your name, in an insured, IRS-approved depository.'), ira_body),
  'about.html': page('About','Family-owned precious-metals dealer in Northwest Florida with over 20 years in the industry.','about',
     band('Our Story','About B.C. Bullion','A growing, family-owned precious-metals company built on honest pricing, insured delivery, and real one-on-one service.'), about_body),
  'faq.html': page('FAQ','Answers on shipping, insurance, payment, buyback, and IRA-eligible metals from B.C. Bullion.','faq',
