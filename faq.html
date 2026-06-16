@@ -5,11 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>FAQ | B.C. Bullion</title>
 <meta name="description" content="Answers on shipping, insurance, payment, buyback, and IRA-eligible metals from B.C. Bullion.">
+<link rel="icon" href="/assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{--cream:#F6F2E9;--navy:#0E1B2C;--navy2:#0A1422;--navy3:#08111E;--gold:#C6A04A;--gold-soft:#F0D89B;--crimson:#A11D22;--ink:#2A2A24;--muted:#6E6A5C;--line:#ECE4D2;--d-text:#C7D2DF;--d-muted:#9FB0C3;--d-faint:#7E90A6;}
+  :root{--cream:#F6F2E9;--navy:#0E1B2C;--navy2:#0A1422;--navy3:#08111E;--gold:#C6A04A;--gold-soft:#F0D89B;--gold-deep:#A8842F;--crimson:#A11D22;--ink:#2A2A24;--muted:#6E6A5C;--line:#ECE4D2;--d-text:#C7D2DF;--d-muted:#9FB0C3;--d-faint:#7E90A6;}
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{background:var(--cream);color:var(--ink);font-family:'Inter',system-ui,-apple-system,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
@@ -19,11 +20,10 @@
   .util .star{color:var(--gold)}
   .util a{color:#E8DFC9;text-decoration:none;font-weight:600;letter-spacing:.3px}
   header{position:sticky;top:0;z-index:60;background:rgba(14,27,44,.97);backdrop-filter:blur(10px);border-bottom:1px solid rgba(198,160,74,.22);box-shadow:0 8px 30px rgba(8,16,28,.28)}
-  .hdr-in{max-width:1060px;margin:0 auto;padding:15px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  .hdr-in{max-width:1060px;margin:0 auto;padding:13px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
   .brand{display:flex;align-items:center;gap:13px;text-decoration:none}
-  .brand .mark{font-family:'Cinzel',serif;font-weight:800;font-size:22px;letter-spacing:1px;color:var(--cream)}
-  .brand .mark b{color:var(--gold)}
-  .brand .tag{display:flex;align-items:center;height:28px;padding-left:13px;border-left:1px solid rgba(198,160,74,.3);font-size:9px;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase;max-width:110px;line-height:1.5}
+  .brand .logo{height:46px;width:auto;display:block}
+  .brand .tag{display:flex;align-items:center;height:30px;padding-left:13px;border-left:1px solid rgba(198,160,74,.3);font-size:9px;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase;max-width:110px;line-height:1.5}
   nav.main{display:flex;align-items:center;gap:22px}
   nav.main a{color:var(--d-text);text-decoration:none;font-size:13.5px;font-weight:500;letter-spacing:.2px;padding:6px 0;border-bottom:1.5px solid transparent;transition:color .2s,border-color .2s}
   nav.main a:hover{color:#fff;border-bottom-color:rgba(198,160,74,.5)}
@@ -44,11 +44,11 @@
   .card p:last-child{margin-bottom:0}
   .lead{font-size:17px;color:#3C3930}
   .card a.inline{color:#8A6D24;text-decoration:underline;font-weight:600}
-  .vals{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:6px}
-  .val{display:flex;gap:14px;align-items:flex-start}
-  .val .vi{flex-shrink:0;width:38px;height:38px;border-radius:9px;background:linear-gradient(135deg,#FBF4E2,#F2E6C8);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:#9C7A2E;font-size:15px}
-  .val h3{font-size:15px;font-weight:600;color:var(--navy);margin-bottom:3px}
-  .val p{font-size:13.5px;color:#6E6A5C;margin:0;line-height:1.5}
+  .vals{display:grid;grid-template-columns:repeat(2,1fr);gap:26px 30px;margin-top:8px}
+  .val{display:flex;gap:15px;align-items:flex-start}
+  .val .vi{flex-shrink:0;width:46px;height:46px;border-radius:50%;border:1px solid rgba(198,160,74,.5);background:rgba(198,160,74,.10);display:flex;align-items:center;justify-content:center;color:var(--gold-deep)}
+  .val h3{font-size:15.5px;font-weight:600;color:var(--navy);margin-bottom:4px}
+  .val p{font-size:13.5px;color:#6E6A5C;margin:0;line-height:1.55}
   details.faq{border:1px solid var(--line);border-radius:13px;padding:0;margin-bottom:12px;background:#fff;overflow:hidden}
   details.faq summary{list-style:none;cursor:pointer;padding:20px 22px;font-weight:600;font-size:15.5px;color:var(--navy);display:flex;align-items:center;justify-content:space-between;gap:14px}
   details.faq summary::-webkit-details-marker{display:none}
@@ -72,18 +72,17 @@
   .verse{text-align:center;margin:40px auto 0;max-width:1060px;padding:0 24px}
   .verse p{font-family:'Cinzel',serif;font-style:italic;font-size:18px;color:#8A6D24;line-height:1.5}
   .verse .ref{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-top:12px}
-  footer{background:var(--navy3);color:var(--d-muted);margin-top:48px}
+  footer.foot{background:var(--navy3);color:var(--d-muted);margin-top:48px}
   .foot-in{max-width:1060px;margin:0 auto;padding:54px 24px 0}
   .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:40px}
-  .foot .mark{font-family:'Cinzel',serif;font-weight:800;font-size:22px;letter-spacing:1px;color:var(--cream)}
-  .foot .mark b{color:var(--gold)}
-  .foot .ftag{font-size:9px;color:var(--gold);letter-spacing:2.5px;margin-top:10px;text-transform:uppercase}
+  .foot .logo{height:54px;width:auto;display:block;margin-bottom:6px}
+  .foot .ftag{font-size:9px;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase}
   .foot p.blurb{font-size:13px;line-height:1.6;color:var(--d-faint);margin:16px 0 18px;max-width:320px}
   .foot .ci{font-size:13px;line-height:1.95;color:var(--d-muted)}
   .foot .ci a{color:#E8DFC9;text-decoration:none;font-weight:600}
   .foot .ci .dim{color:#6E8097}
   .foot h4{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;font-weight:600}
-  .foot .links{display:flex;flex-direction:column;gap:11px}
+  .foot .links{display:flex;flex-direction:column;gap:11px;align-items:flex-start}
   .foot .links a{color:var(--d-muted);text-decoration:none;font-size:13.5px}
   .foot .links a:hover{color:#fff}
   .legal{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:44px;padding:18px 0 30px;border-top:1px solid rgba(255,255,255,.06)}
@@ -101,7 +100,7 @@
   </div>
   <header>
     <div class="hdr-in">
-      <a class="brand" href="/"><span class="mark">B.C. <b>BULLION</b></span><span class="tag">Your Wealth Starts Here</span></a>
+      <a class="brand" href="/"><img class="logo" src="/assets/logo.png" alt="B.C. Bullion"><span class="tag">Your Wealth Starts Here</span></a>
       <nav class="main"><a href="/#category">Shop</a><a href="/about.html">About</a><a href="/faq.html" class="active">FAQ</a><a href="/contact.html">Contact</a></nav>
       <a class="cta" href="/#category">Shop Metals</a>
     </div>
@@ -118,10 +117,10 @@
       <a class="cta" href="/contact.html" style="display:inline-block">Contact us</a>
     </div>
   </div>
-  <footer><div class="foot-in">
+  <footer class="foot"><div class="foot-in">
     <div class="foot-grid">
       <div>
-        <div class="mark">B.C. <b>BULLION</b></div>
+        <img class="logo" src="/assets/logo.png" alt="B.C. Bullion">
         <div class="ftag">Your Wealth Starts Here</div>
         <p class="blurb">Family-owned precious-metals dealer in Northwest Florida. Honest pricing, insured delivery, real people &mdash; for 20+ years.</p>
         <div class="ci">

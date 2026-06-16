@@ -1,9 +1,12 @@
 # -*- coding: utf-8 -*-
+# Generates the standalone pages (about/faq/contact/privacy) from one shared
+# chrome (CSS + header nav + footer). Edit here + re-run; do not hand-edit the HTML.
 import os
 OUT = os.path.expanduser('~/bc-deploy/bcbullion')
+LOGO = '/assets/logo.png'
 
 CSS = """
-  :root{--cream:#F6F2E9;--navy:#0E1B2C;--navy2:#0A1422;--navy3:#08111E;--gold:#C6A04A;--gold-soft:#F0D89B;--crimson:#A11D22;--ink:#2A2A24;--muted:#6E6A5C;--line:#ECE4D2;--d-text:#C7D2DF;--d-muted:#9FB0C3;--d-faint:#7E90A6;}
+  :root{--cream:#F6F2E9;--navy:#0E1B2C;--navy2:#0A1422;--navy3:#08111E;--gold:#C6A04A;--gold-soft:#F0D89B;--gold-deep:#A8842F;--crimson:#A11D22;--ink:#2A2A24;--muted:#6E6A5C;--line:#ECE4D2;--d-text:#C7D2DF;--d-muted:#9FB0C3;--d-faint:#7E90A6;}
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{background:var(--cream);color:var(--ink);font-family:'Inter',system-ui,-apple-system,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
@@ -13,11 +16,10 @@ CSS = """
   .util .star{color:var(--gold)}
   .util a{color:#E8DFC9;text-decoration:none;font-weight:600;letter-spacing:.3px}
   header{position:sticky;top:0;z-index:60;background:rgba(14,27,44,.97);backdrop-filter:blur(10px);border-bottom:1px solid rgba(198,160,74,.22);box-shadow:0 8px 30px rgba(8,16,28,.28)}
-  .hdr-in{max-width:1060px;margin:0 auto;padding:15px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  .hdr-in{max-width:1060px;margin:0 auto;padding:13px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
   .brand{display:flex;align-items:center;gap:13px;text-decoration:none}
-  .brand .mark{font-family:'Cinzel',serif;font-weight:800;font-size:22px;letter-spacing:1px;color:var(--cream)}
-  .brand .mark b{color:var(--gold)}
-  .brand .tag{display:flex;align-items:center;height:28px;padding-left:13px;border-left:1px solid rgba(198,160,74,.3);font-size:9px;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase;max-width:110px;line-height:1.5}
+  .brand .logo{height:46px;width:auto;display:block}
+  .brand .tag{display:flex;align-items:center;height:30px;padding-left:13px;border-left:1px solid rgba(198,160,74,.3);font-size:9px;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase;max-width:110px;line-height:1.5}
   nav.main{display:flex;align-items:center;gap:22px}
   nav.main a{color:var(--d-text);text-decoration:none;font-size:13.5px;font-weight:500;letter-spacing:.2px;padding:6px 0;border-bottom:1.5px solid transparent;transition:color .2s,border-color .2s}
   nav.main a:hover{color:#fff;border-bottom-color:rgba(198,160,74,.5)}
@@ -38,11 +40,11 @@ CSS = """
   .card p:last-child{margin-bottom:0}
   .lead{font-size:17px;color:#3C3930}
   .card a.inline{color:#8A6D24;text-decoration:underline;font-weight:600}
-  .vals{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:6px}
-  .val{display:flex;gap:14px;align-items:flex-start}
-  .val .vi{flex-shrink:0;width:38px;height:38px;border-radius:9px;background:linear-gradient(135deg,#FBF4E2,#F2E6C8);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:#9C7A2E;font-size:15px}
-  .val h3{font-size:15px;font-weight:600;color:var(--navy);margin-bottom:3px}
-  .val p{font-size:13.5px;color:#6E6A5C;margin:0;line-height:1.5}
+  .vals{display:grid;grid-template-columns:repeat(2,1fr);gap:26px 30px;margin-top:8px}
+  .val{display:flex;gap:15px;align-items:flex-start}
+  .val .vi{flex-shrink:0;width:46px;height:46px;border-radius:50%;border:1px solid rgba(198,160,74,.5);background:rgba(198,160,74,.10);display:flex;align-items:center;justify-content:center;color:var(--gold-deep)}
+  .val h3{font-size:15.5px;font-weight:600;color:var(--navy);margin-bottom:4px}
+  .val p{font-size:13.5px;color:#6E6A5C;margin:0;line-height:1.55}
   details.faq{border:1px solid var(--line);border-radius:13px;padding:0;margin-bottom:12px;background:#fff;overflow:hidden}
   details.faq summary{list-style:none;cursor:pointer;padding:20px 22px;font-weight:600;font-size:15.5px;color:var(--navy);display:flex;align-items:center;justify-content:space-between;gap:14px}
   details.faq summary::-webkit-details-marker{display:none}
@@ -66,18 +68,17 @@ CSS = """
   .verse{text-align:center;margin:40px auto 0;max-width:1060px;padding:0 24px}
   .verse p{font-family:'Cinzel',serif;font-style:italic;font-size:18px;color:#8A6D24;line-height:1.5}
   .verse .ref{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-top:12px}
-  footer{background:var(--navy3);color:var(--d-muted);margin-top:48px}
+  footer.foot{background:var(--navy3);color:var(--d-muted);margin-top:48px}
   .foot-in{max-width:1060px;margin:0 auto;padding:54px 24px 0}
   .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:40px}
-  .foot .mark{font-family:'Cinzel',serif;font-weight:800;font-size:22px;letter-spacing:1px;color:var(--cream)}
-  .foot .mark b{color:var(--gold)}
-  .foot .ftag{font-size:9px;color:var(--gold);letter-spacing:2.5px;margin-top:10px;text-transform:uppercase}
+  .foot .logo{height:54px;width:auto;display:block;margin-bottom:6px}
+  .foot .ftag{font-size:9px;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase}
   .foot p.blurb{font-size:13px;line-height:1.6;color:var(--d-faint);margin:16px 0 18px;max-width:320px}
   .foot .ci{font-size:13px;line-height:1.95;color:var(--d-muted)}
   .foot .ci a{color:#E8DFC9;text-decoration:none;font-weight:600}
   .foot .ci .dim{color:#6E8097}
   .foot h4{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;font-weight:600}
-  .foot .links{display:flex;flex-direction:column;gap:11px}
+  .foot .links{display:flex;flex-direction:column;gap:11px;align-items:flex-start}
   .foot .links a{color:var(--d-muted);text-decoration:none;font-size:13.5px}
   .foot .links a:hover{color:#fff}
   .legal{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:44px;padding:18px 0 30px;border-top:1px solid rgba(255,255,255,.06)}
@@ -99,7 +100,7 @@ def header(active):
   </div>
   <header>
     <div class="hdr-in">
-      <a class="brand" href="/"><span class="mark">B.C. <b>BULLION</b></span><span class="tag">Your Wealth Starts Here</span></a>
+      <a class="brand" href="/"><img class="logo" src="{LOGO}" alt="B.C. Bullion"><span class="tag">Your Wealth Starts Here</span></a>
       <nav class="main">{nav}</nav>
       <a class="cta" href="/#category">Shop Metals</a>
     </div>
@@ -112,10 +113,10 @@ def band(eyebrow,h1,sub):
     <p>{sub}</p>
   </div></div>"""
 
-FOOTER = """  <footer><div class="foot-in">
+FOOTER = f"""  <footer class="foot"><div class="foot-in">
     <div class="foot-grid">
       <div>
-        <div class="mark">B.C. <b>BULLION</b></div>
+        <img class="logo" src="{LOGO}" alt="B.C. Bullion">
         <div class="ftag">Your Wealth Starts Here</div>
         <p class="blurb">Family-owned precious-metals dealer in Northwest Florida. Honest pricing, insured delivery, real people &mdash; for 20+ years.</p>
         <div class="ci">
@@ -147,6 +148,7 @@ def page(title,desc,active,band_html,body_html):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title} | B.C. Bullion</title>
 <meta name="description" content="{desc}">
+<link rel="icon" href="{LOGO}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -160,10 +162,20 @@ def page(title,desc,active,band_html,body_html):
 </body>
 </html>"""
 
-def val(icon,t,d):
-    return f'<div class="val"><div class="vi">{icon}</div><div><h3>{t}</h3><p>{d}</p></div></div>'
+def icon(path):
+    return f'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="{path}"></path></svg>'
 
-# ---------------- ABOUT ----------------
+def val(path,t,d):
+    return f'<div class="val"><div class="vi">{icon(path)}</div><div><h3>{t}</h3><p>{d}</p></div></div>'
+
+# homepage whyItems icons (verbatim) + a 6th star for American sound money
+I_PRICE='M20.6 12.4l-8.2 8.2a1.8 1.8 0 0 1-2.5 0l-6.5-6.5a1.8 1.8 0 0 1-.5-1.3V4.6A1.6 1.6 0 0 1 4.6 3h8.2c.5 0 .9.2 1.3.5l6.5 6.5a1.8 1.8 0 0 1 0 2.4Z M6.5 8a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0-3 0'
+I_SHIP='M12 3l7 2.4v5.3c0 4.3-3 7.6-7 9-4-1.4-7-4.7-7-9V5.4L12 3Z M8.8 12.2l2.1 2.1 4.3-4.5'
+I_BUYBACK='M20 12a8 8 0 1 1-2.4-5.7 M20 4.2v3.4h-3.4'
+I_PHONE='M15.6 13.9l-1.9 1.9a13 13 0 0 1-5.4-5.4l1.9-1.9L8.1 4H4.3A1.3 1.3 0 0 0 3 5.4 16.6 16.6 0 0 0 18.7 21 1.3 1.3 0 0 0 20 19.7v-3.8Z'
+I_SCALES='M12 4.5v14.5 M6 8h12 M9 19h6 M6 8l-3 4.8 M6 8l3 4.8 M3 12.8a3 3 0 0 0 6 0 M18 8l-3 4.8 M18 8l3 4.8 M15 12.8a3 3 0 0 0 6 0'
+I_STAR='M12 3.2l2.47 5.01 5.53.8-4 3.9.94 5.5L12 16.8l-4.94 2.6.94-5.5-4-3.9 5.53-.8z'
+
 about_body = f"""  <div class="wrap">
     <div class="card">
       <section>
@@ -178,19 +190,18 @@ about_body = f"""  <div class="wrap">
         <h2><span class="dot">&#9670;</span>Why families buy from us</h2>
         <p>We strongly believe that in this rapidly changing world, every family should have the financial security that owning precious metals can provide. We offer a focused handful of options that appeal to the seasoned stacker and the first-time buyer alike &mdash; from American Gold &amp; Silver Eagles to USA-made Patriot Stackers, graded coins, and our Biblical Coins collection.</p>
         <div class="vals">
-          {val('&#9670;','Transparent spot-based pricing','Every price ties to the live market &mdash; no hidden markups, no games.')}
-          {val('&#128737;','Fully insured &amp; discreet shipping','Plain, unmarked packaging, signature required, insured door to door.')}
-          {val('&#8635;','Buyback guarantee','We buy back what we sell at fair, live-market pricing &mdash; a standing offer.')}
-          {val('&#128222;','Personal one-on-one service','Talk to a real person who knows your name and your goals. No call centers.')}
-          {val('&#10013;','Faith-informed integrity','Honest weights and honest dealings &mdash; a family business run the way business ought to be done.')}
-          {val('&#127482;','American sound money','Physical gold and silver you hold in your own hands, in your own name.')}
+          {val(I_PRICE,'Transparent spot-based pricing','Every price ties to the live market &mdash; no hidden markups, no games. You always see how your price is built.')}
+          {val(I_SHIP,'Fully insured &amp; discreet shipping','Plain, unmarked packaging, signature required, insured door to door from the moment it leaves us.')}
+          {val(I_BUYBACK,'Buyback guarantee','We buy back what we sell at fair, live-market pricing &mdash; a standing offer, whenever you are ready.')}
+          {val(I_PHONE,'Personal one-on-one service','Talk to a real person who knows your name and your goals. No call centers, no scripts.')}
+          {val(I_SCALES,'Faith-informed integrity','Honest weights and honest dealings &mdash; a family business run the way business ought to be done.')}
+          {val(I_STAR,'American sound money','Physical gold and silver you hold in your own hands, in your own name.')}
         </div>
       </section>
     </div>
   </div>
   <div class="verse"><p>&ldquo;Dishonest money dwindles away, but whoever gathers money little by little makes it grow.&rdquo;</p><div class="ref">&mdash; Proverbs 13:11 &mdash;</div></div>"""
 
-# ---------------- FAQ ----------------
 faqs = [
  ("Is my information secure?","Yes. Checkout runs over encrypted, PCI-compliant connections, and we never sell or share your information. Every order ships in plain, unmarked packaging with no indication of the contents."),
  ("How fast do you ship &mdash; and is it insured?","Most in-stock orders leave within 1&ndash;2 business days, fully insured door to door with signature required on delivery. Insured shipping is free on orders over $199."),
@@ -209,7 +220,6 @@ faq_body = f"""  <div class="wrap">
     </div>
   </div>"""
 
-# ---------------- CONTACT ----------------
 contact_body = """  <div class="wrap">
     <div class="ct-grid">
       <a class="ct" href="tel:8505851115"><div class="k">Call us</div><div class="v">(850) 585-1115</div><div class="s">Mon&ndash;Fri, 9am&ndash;5pm CT</div></a>
@@ -236,7 +246,6 @@ contact_body = """  <div class="wrap">
     </div>
   </div>"""
 
-# ---------------- PRIVACY (rebuilt with shared chrome) ----------------
 privacy_body = """  <div class="wrap">
     <div class="card">
       <section><p class="lead">B.C. Bullion is a family-owned precious-metals dealer in Northwest Florida. We keep our privacy practices as straightforward as our pricing: we collect only what we need to serve you, we protect it, and we never sell it. <span style="color:#8A6D24">Last updated: June 16, 2026.</span></p></section>
