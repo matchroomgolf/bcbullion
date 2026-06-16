@@ -1,0 +1,267 @@
+{
+ "gold": {
+  "name": "Gold",
+  "products": [
+   {
+    "title": "1 oz American Gold Eagle B.U. (Random Year)",
+    "price": "as low as $4,458.56",
+    "img": "https://bcbullion.com/wp-content/uploads/2017/08/GoldAmericanEagle.jpg",
+    "local": "/assets/catalog/gold/0.jpg"
+   },
+   {
+    "title": "1 oz Tombstone Hammered Gold Round",
+    "price": "as low as $4,425.56",
+    "img": "https://bcbullion.com/wp-content/uploads/2017/08/hammeredgold.jpg",
+    "local": "/assets/catalog/gold/1.jpg"
+   },
+   {
+    "title": "1 oz. Scottsdale Gold Bar",
+    "price": "as low as $4,420.56",
+    "img": "https://bcbullion.com/wp-content/uploads/2018/06/4.jpg",
+    "local": "/assets/catalog/gold/2.jpg"
+   },
+   {
+    "title": "100 Gram Scottsdale Gold Bar (3.215 oz)",
+    "price": "as low as $14,158.90",
+    "img": "https://bcbullion.com/wp-content/uploads/2020/03/IMG_0994.jpg",
+    "local": "/assets/catalog/gold/3.jpg"
+   },
+   {
+    "title": "1oz Gold Bar \u2013 Valcambi (In Assay)",
+    "price": "as low as $2,365.00",
+    "img": "https://bcbullion.com/wp-content/uploads/2021/04/IMG_4866.jpeg",
+    "local": "/assets/catalog/gold/4.jpeg"
+   },
+   {
+    "title": "2017  Barbados Trident  1/5oz Gold Coin",
+    "price": "as low as $383.00",
+    "img": "https://bcbullion.com/wp-content/uploads/2020/03/17-trident-fifthOZ-front-capsule.jpg",
+    "local": "/assets/catalog/gold/5.jpg"
+   },
+   {
+    "title": "Scottsdale Gold Kilo",
+    "price": "as low as $140,495.00",
+    "img": "https://bcbullion.com/wp-content/uploads/2017/08/KiloGold-8.jpg",
+    "local": "/assets/catalog/gold/6.jpg"
+   }
+  ]
+ },
+ "silver": {
+  "name": "Silver",
+  "products": [
+   {
+    "title": "1 Kilo Tombstone Silver Nugget",
+    "price": "as low as $2,482.82",
+    "img": "https://bcbullion.com/wp-content/uploads/2017/08/Tombstone-101.jpg",
+    "local": "/assets/catalog/silver/0.jpg"
+   },
+   {
+    "title": "1 oz American Silver Eagle (Random Years)",
+    "price": "as low as $29.20",
+    "img": "https://bcbullion.com/wp-content/uploads/2017/08/sae.jpg",
+    "local": "/assets/catalog/silver/1.jpg"
+   },
+   {
+    "title": "10 oz Scottsdale \u201cChunky\u201d Cast Bar",
+    "price": "as low as $783.33",
+    "img": "https://bcbullion.com/wp-content/uploads/2018/02/Chunky-2-1.jpg",
+    "local": "/assets/catalog/silver/2.jpg"
+   },
+   {
+    "title": "10 oz Tombstone Silver Nugget",
+    "price": "as low as $772.73",
+    "img": "https://bcbullion.com/wp-content/uploads/2018/06/Tombstone10oz_50.jpg",
+    "local": "/assets/catalog/silver/3.jpg"
+   },
+   {
+    "title": "100 oz Scottsdale \u201cKing\u201d Stacker",
+    "price": "as low as $7,473.32",
+    "img": "https://bcbullion.com/wp-content/uploads/2019/06/DSC_1477.jpg",
+    "local": "/assets/catalog/silver/4.jpg"
+   },
+   {
+    "title": "100g Scottsdale \u201cStacker\u201d Round",
+    "price": "as low as $250.73",
+    "img": "https://bcbullion.com/wp-content/uploads/2019/07/FullSizeR-21.jpg",
+    "local": "/assets/catalog/silver/5.jpg"
+   },
+   {
+    "title": "2 oz Scottsdale \u201cStacker Round\u201d",
+    "price": "as low as $162.02",
+    "img": "https://bcbullion.com/wp-content/uploads/2018/02/StackerRounds-21.jpg",
+    "local": "/assets/catalog/silver/6.jpg"
+   },
+   {
+    "title": "20 oz Scottsdale Long Cast Bar",
+    "price": "as low as $1,543.66",
+    "img": "https://bcbullion.com/wp-content/uploads/2017/08/side-3.jpg",
+    "local": "/assets/catalog/silver/7.jpg"
+   },
+   {
+    "title": "5 oz Scottsdale \u201cStacker Round\u201d",
+    "price": "as low as $385.42",
+    "img": "https://bcbullion.com/wp-content/uploads/2019/06/SS_5oz_1.png",
+    "local": "/assets/catalog/silver/8.png"
+   },
+   {
+    "title": "5 oz Scottsdale Cast Bar",
+    "price": "as low as $401.64",
+    "img": "https://bcbullion.com/wp-content/uploads/2019/05/FullSizeR-3.jpg",
+    "local": "/assets/catalog/silver/9.jpg"
+   },
+   {
+    "title": "5 oz Tombstone Silver Nugget",
+    "price": "as low as $397.92",
+    "img": "https://bcbullion.com/wp-content/uploads/2017/10/Tombstone5oz_22.jpg",
+    "local": "/assets/catalog/silver/10.jpg"
+   },
+   {
+    "title": "Nadir 10 oz Silver Bars",
+    "price": "as low as $768.83",
+    "img": "https://bcbullion.com/wp-content/uploads/2020/10/BDB065FB-3E4A-49D8-B4B0-753E6E5ACB41-e1602254741894.jpeg",
+    "local": "/assets/catalog/silver/11.jpeg"
+   },
+   {
+    "title": "Scottsdale \u201cReserve\u201d Kilo",
+    "price": "as low as $2,438.82",
+    "img": "https://bcbullion.com/wp-content/uploads/2020/05/ad.jpg",
+    "local": "/assets/catalog/silver/12.jpg"
+   },
+   {
+    "title": "Scottsdale 10-oz Stacker",
+    "price": "as low as $758.33",
+    "img": "https://bcbullion.com/wp-content/uploads/2021/06/DSC_1182.jpg",
+    "local": "/assets/catalog/silver/13.jpg"
+   },
+   {
+    "title": "Kilo Stacker-Patriot Metals",
+    "price": "as low as $2,388.27",
+    "img": "https://bcbullion.com/wp-content/uploads/2017/08/Patriot_04.jpg",
+    "local": "/assets/catalog/silver/14.jpg"
+   },
+   {
+    "title": "100 oz Stacker \u2013 Patriot Metals",
+    "price": "as low as $7,488.32",
+    "img": "https://bcbullion.com/wp-content/uploads/2017/08/100ozPatriot.jpg",
+    "local": "/assets/catalog/silver/15.jpg"
+   }
+  ]
+ },
+ "graded-coins": {
+  "name": "Graded Coins",
+  "products": [
+   {
+    "title": "2006-2023  PF70 Gold Buffalo Set",
+    "price": "as low as $82,010.00",
+    "img": "https://bcbullion.com/wp-content/uploads/2017/11/bcbpf70buffset.jpg",
+    "local": "/assets/catalog/graded-coins/0.jpg"
+   },
+   {
+    "title": "2019 Pride of Two Nations 2-Coin Set PR-70 PCGS",
+    "price": "as low as $280.00",
+    "img": "https://bcbullion.com/wp-content/uploads/2020/06/19A2006E-CF76-4467-A461-C49C6BA20203.jpeg",
+    "local": "/assets/catalog/graded-coins/1.jpeg"
+   }
+  ]
+ },
+ "patriot-stackers": {
+  "name": "Patriot Stackers",
+  "products": [
+   {
+    "title": "Kilo Stacker-Patriot Metals",
+    "price": "as low as $2,388.27",
+    "img": "https://bcbullion.com/wp-content/uploads/2017/08/Patriot_04.jpg",
+    "local": "/assets/catalog/patriot-stackers/0.jpg"
+   },
+   {
+    "title": "100 oz Stacker \u2013 Patriot Metals",
+    "price": "as low as $7,488.32",
+    "img": "https://bcbullion.com/wp-content/uploads/2017/08/100ozPatriot.jpg",
+    "local": "/assets/catalog/patriot-stackers/1.jpg"
+   }
+  ]
+ },
+ "biblical-coins": {
+  "name": "Biblical Coins",
+  "products": [
+   {
+    "title": "Biblical Series 2016 *Adam and Eve*",
+    "price": "as low as $179.00",
+    "img": "https://bcbullion.com/wp-content/uploads/2017/08/AdamEve1.jpg",
+    "local": "/assets/catalog/biblical-coins/0.jpg"
+   },
+   {
+    "title": "Biblical Series 2016 *Good Samaritan*",
+    "price": "as low as $179.00",
+    "img": "https://bcbullion.com/wp-content/uploads/2017/08/Daniel_4.jpg",
+    "local": "/assets/catalog/biblical-coins/1.jpg"
+   },
+   {
+    "title": "Biblical Series 2016 *The Nativity*",
+    "price": "as low as $179.00",
+    "img": "https://bcbullion.com/wp-content/uploads/2018/06/DSC_9566-1.jpg",
+    "local": "/assets/catalog/biblical-coins/2.jpg"
+   },
+   {
+    "title": "Biblical Series 2016 *Valley of Dry Bones*",
+    "price": "as low as $179.00",
+    "img": "https://bcbullion.com/wp-content/uploads/2017/08/Daniel_4.jpg",
+    "local": "/assets/catalog/biblical-coins/3.jpg"
+   },
+   {
+    "title": "Biblical Series 2017 *Baptism of Jesus*",
+    "price": "as low as $179.00",
+    "img": "https://bcbullion.com/wp-content/uploads/2017/08/AdamEve1.jpg",
+    "local": "/assets/catalog/biblical-coins/4.jpg"
+   },
+   {
+    "title": "Biblical Series 2017 *Jacob wrestles the Angel*",
+    "price": "as low as $179.00",
+    "img": "https://bcbullion.com/wp-content/uploads/2018/06/Jacob6.jpg",
+    "local": "/assets/catalog/biblical-coins/5.jpg"
+   },
+   {
+    "title": "Biblical Series 2017 *Jesus calms the sea*",
+    "price": "as low as $179.00",
+    "img": "https://bcbullion.com/wp-content/uploads/2018/06/JesusCalms00005.jpg",
+    "local": "/assets/catalog/biblical-coins/6.jpg"
+   },
+   {
+    "title": "Biblical Series 2017 *Nailing Christ to the Cross*",
+    "price": "as low as $179.00",
+    "img": "https://bcbullion.com/wp-content/uploads/2017/08/AdamEve1.jpg",
+    "local": "/assets/catalog/biblical-coins/7.jpg"
+   },
+   {
+    "title": "Biblical Series 2017 *The death of Able*",
+    "price": "as low as $179.00",
+    "img": "https://bcbullion.com/wp-content/uploads/2018/06/DeathofAbel00002.jpg",
+    "local": "/assets/catalog/biblical-coins/8.jpg"
+   },
+   {
+    "title": "Biblical Series 2017 *The Wise Men*",
+    "price": "as low as $179.00",
+    "img": "https://bcbullion.com/wp-content/uploads/2018/06/WiseMen8.jpg",
+    "local": "/assets/catalog/biblical-coins/9.jpg"
+   },
+   {
+    "title": "Biblical Series 2018 *Jesus Scourged*",
+    "price": "as low as $179.00",
+    "img": "https://bcbullion.com/wp-content/uploads/2018/06/Jesus_Scourged_003.jpg",
+    "local": "/assets/catalog/biblical-coins/10.jpg"
+   },
+   {
+    "title": "Biblical Series 2018 *Noah\u2019s Dove*",
+    "price": "as low as $179.00",
+    "img": "https://bcbullion.com/wp-content/uploads/2017/08/AdamEve1.jpg",
+    "local": "/assets/catalog/biblical-coins/11.jpg"
+   },
+   {
+    "title": "Biblical Series 2018 *The Chariot of Fire*",
+    "price": "as low as $179.00",
+    "img": "https://bcbullion.com/wp-content/uploads/2018/06/0000_BIB21_front-1.jpg",
+    "local": "/assets/catalog/biblical-coins/12.jpg"
+   }
+  ]
+ }
+}

@@ -84,7 +84,24 @@ CSS = """
   .legal{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:44px;padding:18px 0 30px;border-top:1px solid rgba(255,255,255,.06)}
   .legal span{font-size:11.5px;color:#5E7088}
   .legal a{color:var(--d-muted);text-decoration:underline}
-  @media(max-width:760px){.vals,.ct-grid,.foot-grid{grid-template-columns:1fr}.frm .row{grid-template-columns:1fr}.brand .tag{display:none}nav.main{gap:16px;font-size:13px}}
+  .shopnote{background:linear-gradient(180deg,#16263C,#0E1B2C);border:1px solid rgba(198,160,74,.3);border-radius:14px;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:28px}
+  .shopnote .t{color:var(--cream);font-size:14.5px}.shopnote .t b{color:var(--gold-soft)}
+  .shopnote a{background:linear-gradient(135deg,var(--gold-soft),var(--gold) 55%,#9C7A2E);color:var(--navy);font-weight:700;font-size:14px;padding:11px 22px;border-radius:8px;text-decoration:none;white-space:nowrap}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px}
+  .chips a{font-size:13px;font-weight:600;letter-spacing:.2px;color:#6E6A5C;text-decoration:none;padding:8px 16px;border:1px solid var(--line);border-radius:30px;background:#fff;transition:border-color .15s,color .15s}
+  .chips a:hover{border-color:var(--gold);color:var(--navy)}
+  .chips a.active{background:var(--navy);color:var(--cream);border-color:var(--navy)}
+  .pcount{font-size:13px;color:var(--muted);margin-bottom:18px}
+  .pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(228px,1fr));gap:22px}
+  .pcard{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;text-decoration:none;transition:border-color .2s,box-shadow .2s,transform .2s}
+  .pcard:hover{border-color:var(--gold);box-shadow:0 14px 30px rgba(14,27,44,.10);transform:translateY(-2px)}
+  .pimg{aspect-ratio:1/1;background:radial-gradient(circle at 50% 38%,#fff,#F1EBDD);display:flex;align-items:center;justify-content:center;padding:20px;border-bottom:1px solid var(--line)}
+  .pimg img{max-width:100%;max-height:100%;object-fit:contain}
+  .pinfo{padding:15px 16px 17px;display:flex;flex-direction:column;gap:7px;flex:1}
+  .pinfo h3{font-size:14px;font-weight:600;color:var(--navy);line-height:1.32;margin:0}
+  .pprice{font-size:12.5px;color:#6E6A5C;margin-top:auto}.pprice b{font-family:'Cinzel',serif;font-size:16px;color:var(--gold-deep);font-weight:700}
+  .porder{font-size:12.5px;font-weight:600;color:var(--gold-deep);letter-spacing:.3px}
+  @media(max-width:760px){.vals,.ct-grid,.foot-grid{grid-template-columns:1fr}.frm .row{grid-template-columns:1fr}.brand .tag{display:none}nav.main{gap:16px;font-size:13px}.pgrid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}.shopnote{flex-direction:column;align-items:flex-start}}
 """
 
 def header(active):
@@ -127,8 +144,8 @@ FOOTER = f"""  <footer class="foot"><div class="foot-in">
         </div>
       </div>
       <div><h4>Shop</h4><div class="links">
-        <a href="/#category">Gold</a><a href="/#category">Silver</a><a href="/#category">Graded Coins</a>
-        <a href="/#patriotstackers">Patriot Stackers</a><a href="/#category">Biblical Coins</a><a href="/#ira">Precious-Metals IRA</a>
+        <a href="/gold.html">Gold</a><a href="/silver.html">Silver</a><a href="/graded-coins.html">Graded Coins</a>
+        <a href="/patriot-stackers.html">Patriot Stackers</a><a href="/biblical-coins.html">Biblical Coins</a><a href="/#ira">Precious-Metals IRA</a>
       </div></div>
       <div><h4>Company</h4><div class="links">
         <a href="/about.html">About B.C.</a><a href="/about.html">Our Story</a><a href="/faq.html">FAQ</a><a href="/contact.html">Contact</a>
@@ -266,6 +283,47 @@ privacy_body = """  <div class="wrap">
   </div>
   <p class="note">Precious metals carry market risk and can lose value; nothing here is investment, tax, or legal advice.</p>"""
 
+# ---------------- CATEGORY (SHOP) PAGES — real catalog from bcbullion.com ----------------
+import json as _json
+CATALOG = _json.load(open(os.path.join(OUT,'scripts','catalog.json'), encoding='utf-8'))
+CAT_ORDER = [('gold','Gold'),('silver','Silver'),('graded-coins','Graded Coins'),
+             ('patriot-stackers','Patriot Stackers'),('biblical-coins','Biblical Coins')]
+CAT_SUB = {'gold':'.9999 fine gold bars &amp; coins','silver':'.999 fine rounds, bars &amp; coins',
+           'graded-coins':'PCGS &amp; NGC certified sets','patriot-stackers':'USA-made .999 fine silver',
+           'biblical-coins':'.999 fine silver Biblical Series'}
+esc = lambda s: (s or '').replace('&','&amp;').replace('<','&lt;').replace('>','&gt;')
+
+def catnav(active):
+    out=[]
+    for s,n in CAT_ORDER:
+        cls=' class="active"' if s==active else ''
+        out.append(f'<a href="/{s}.html"{cls}>{n}</a>')
+    return '<div class="chips">'+''.join(out)+'</div>'
+
+def pcard(p):
+    img=p.get('local') or p.get('img') or ''
+    title=esc(p['title'].replace('*',''))
+    price=p.get('price') or ''
+    if '$' in price:
+        pre,amt=price.split('$',1); pr=f'<div class="pprice">{esc(pre.strip())} <b>${esc(amt.strip())}</b></div>'
+    else:
+        pr=f'<div class="pprice">{esc(price)}</div>' if price else ''
+    return (f'<a class="pcard" href="tel:8505851115" title="Call to order">'
+            f'<div class="pimg"><img src="{img}" alt="{title}" loading="lazy"></div>'
+            f'<div class="pinfo"><h3>{title}</h3>{pr}<div class="porder">Call to order &rarr;</div></div></a>')
+
+def category_page(slug,name):
+    prods=CATALOG[slug]['products']
+    note=('<div class="shopnote"><div class="t">Live, <b>spot-based pricing</b> &mdash; updated continuously. '
+          'Wire &amp; check orders save vs. card; insured, discreet shipping.</div>'
+          '<a href="tel:8505851115">Call (850) 585-1115 to order</a></div>')
+    grid='<div class="pgrid">'+''.join(pcard(p) for p in prods)+'</div>'
+    cnt=f'{len(prods)} {"item" if len(prods)==1 else "items"}'
+    body=f'  <div class="wrap">{catnav(slug)}{note}<div class="pcount">{cnt} in {name}</div>{grid}</div>'
+    sub=CAT_SUB.get(slug,'')
+    return page(name, f'Shop {name} at B.C. Bullion — {name} bullion with live spot-based pricing, insured discreet shipping.',
+                'shop', band('Shop', name, f'{sub}. Live spot-based pricing, insured &amp; discreet shipping, real one-on-one service.'), body)
+
 pages = {
  'about.html': page('About','Family-owned precious-metals dealer in Northwest Florida with over 20 years in the industry.','about',
     band('Our Story','About B.C. Bullion','A growing, family-owned precious-metals company built on honest pricing, insured delivery, and real one-on-one service.'), about_body),
@@ -276,6 +334,8 @@ pages = {
  'privacy.html': page('Privacy Policy','How B.C. Bullion collects, uses, and protects your information.','',
     band('Legal','Privacy Policy','Your trust matters as much as your metal. Here is what we collect, how we use it, and our simple promise &mdash; we never sell or share your information.'), privacy_body),
 }
+for slug,name in CAT_ORDER:
+    pages[f'{slug}.html']=category_page(slug,name)
 for fn,html in pages.items():
     open(os.path.join(OUT,fn),'w',encoding='utf-8').write(html)
     print(f"wrote {fn} ({len(html)} bytes)")
