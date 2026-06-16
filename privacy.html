@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy | B.C. Bullion</title>
+<meta name="description" content="How B.C. Bullion collects, uses, and protects your information. Family-owned precious-metals dealer in Northwest Florida.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F6F2E9; --navy:#0E1B2C; --navy2:#0A1422; --navy3:#08111E;
+    --gold:#C6A04A; --gold-soft:#F0D89B; --crimson:#A11D22;
+    --ink:#2A2A24; --muted:#6E6A5C; --line:#ECE4D2;
+    --d-text:#C7D2DF; --d-muted:#9FB0C3; --d-faint:#7E90A6;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--cream);color:var(--ink);font-family:'Inter',system-ui,-apple-system,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+
+  /* utility bar */
+  .util{background:var(--navy2);color:var(--d-muted);font-size:12.5px;letter-spacing:.2px;border-bottom:1px solid rgba(198,160,74,.16)}
+  .util-in{max-width:1000px;margin:0 auto;padding:8px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .util .star{color:var(--gold)}
+  .util a{color:#E8DFC9;text-decoration:none;font-weight:600;letter-spacing:.3px}
+
+  /* header */
+  header{position:sticky;top:0;z-index:60;background:rgba(14,27,44,.97);backdrop-filter:blur(10px);border-bottom:1px solid rgba(198,160,74,.22);box-shadow:0 8px 30px rgba(8,16,28,.28)}
+  .hdr-in{max-width:1000px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+  .brand{display:flex;align-items:center;gap:14px;text-decoration:none}
+  .brand .mark{font-family:'Cinzel',serif;font-weight:800;font-size:23px;letter-spacing:1px;color:var(--cream)}
+  .brand .mark b{color:var(--gold)}
+  .brand .tag{display:flex;align-items:center;height:30px;padding-left:14px;border-left:1px solid rgba(198,160,74,.3);font-size:9.5px;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase;max-width:120px;line-height:1.5}
+  .back{color:var(--d-text);text-decoration:none;font-size:13.5px;font-weight:500;letter-spacing:.2px;display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1px solid rgba(198,160,74,.32);border-radius:8px;transition:border-color .2s,color .2s}
+  .back:hover{border-color:var(--gold);color:#fff}
+
+  /* title band */
+  .band{background:radial-gradient(120% 120% at 80% 0%,#173050 0%,var(--navy) 55%,var(--navy2) 100%);color:var(--cream);border-bottom:1px solid rgba(198,160,74,.22)}
+  .band-in{max-width:1000px;margin:0 auto;padding:62px 24px 54px}
+  .eyebrow{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:14px}
+  .band h1{font-family:'Cinzel',serif;font-weight:800;font-size:clamp(34px,5vw,52px);line-height:1.05;letter-spacing:.5px;margin-bottom:16px}
+  .band p{font-size:16px;color:#BFCBDA;max-width:620px}
+  .updated{margin-top:18px;font-size:13px;color:var(--d-faint);letter-spacing:.3px}
+
+  /* content */
+  .wrap{max-width:1000px;margin:0 auto;padding:54px 24px 30px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:clamp(26px,4vw,52px);box-shadow:0 10px 30px rgba(14,27,44,.06)}
+  .card section+section{margin-top:34px;padding-top:34px;border-top:1px solid var(--line)}
+  .card h2{font-family:'Cinzel',serif;font-weight:700;font-size:21px;color:var(--navy);margin-bottom:12px;display:flex;align-items:center;gap:11px}
+  .card h2 .dot{color:var(--gold);font-size:13px}
+  .card p{color:#54503F;font-size:15px;margin-bottom:12px}
+  .card p:last-child{margin-bottom:0}
+  .card ul{margin:6px 0 4px;padding-left:4px;list-style:none}
+  .card li{position:relative;padding-left:24px;color:#54503F;font-size:15px;margin-bottom:10px}
+  .card li::before{content:"";position:absolute;left:4px;top:9px;width:7px;height:7px;border-radius:2px;background:var(--gold);transform:rotate(45deg)}
+  .card a.inline{color:#8A6D24;text-decoration:underline;font-weight:600}
+  .lead{font-size:16.5px;color:#3C3930}
+
+  .note{margin:22px auto 0;max-width:1000px;padding:0 24px;font-size:12.5px;color:var(--muted);line-height:1.55;text-align:center}
+
+  /* footer */
+  footer{background:var(--navy3);color:var(--d-muted);margin-top:48px}
+  .foot-in{max-width:1000px;margin:0 auto;padding:54px 24px 0}
+  .foot-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:40px}
+  .foot .mark{font-family:'Cinzel',serif;font-weight:800;font-size:22px;letter-spacing:1px;color:var(--cream)}
+  .foot .mark b{color:var(--gold)}
+  .foot .ftag{font-size:9px;color:var(--gold);letter-spacing:2.5px;margin-top:10px;text-transform:uppercase}
+  .foot p.blurb{font-size:13px;line-height:1.6;color:var(--d-faint);margin:16px 0 18px;max-width:320px}
+  .foot .ci{font-size:13px;line-height:1.95;color:var(--d-muted)}
+  .foot .ci a{color:#E8DFC9;text-decoration:none;font-weight:600}
+  .foot .ci .dim{color:#6E8097}
+  .foot h4{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;font-weight:600}
+  .foot .links{display:flex;flex-direction:column;gap:11px}
+  .foot .links a{color:var(--d-muted);text-decoration:none;font-size:13.5px}
+  .foot .links a:hover{color:#fff}
+  .legal{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:44px;padding:18px 0 30px;border-top:1px solid rgba(255,255,255,.06)}
+  .legal span{font-size:11.5px;color:#5E7088}
+  .legal a{color:var(--d-muted);text-decoration:underline}
+  @media(max-width:680px){.foot-grid{grid-template-columns:1fr;gap:30px}.brand .tag{display:none}}
+</style>
+</head>
+<body>
+
+  <div class="util">
+    <div class="util-in">
+      <span><span class="star">★</span> Family-owned · 20+ years in precious metals</span>
+      <a href="tel:8505851115">(850) 585-1115</a>
+    </div>
+  </div>
+
+  <header>
+    <div class="hdr-in">
+      <a class="brand" href="/">
+        <span class="mark">B.C. <b>BULLION</b></span>
+        <span class="tag">Your Wealth Starts Here</span>
+      </a>
+      <a class="back" href="/">&larr; Back to home</a>
+    </div>
+  </header>
+
+  <div class="band">
+    <div class="band-in">
+      <div class="eyebrow">Legal</div>
+      <h1>Privacy Policy</h1>
+      <p>Your trust matters as much as your metal. This explains what we collect, how we use it, and the simple promise behind it&nbsp;&mdash; we never sell or share your information.</p>
+      <div class="updated">Last updated: June 16, 2026</div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="card">
+      <section>
+        <p class="lead">B.C. Bullion is a family-owned precious-metals dealer in Northwest Florida. We keep our privacy practices as straightforward as our pricing: we collect only what we need to serve you, we protect it, and we never sell it.</p>
+      </section>
+
+      <section>
+        <h2><span class="dot">&#9670;</span>Information we collect</h2>
+        <ul>
+          <li><b>Order &amp; contact details</b> &mdash; your name, shipping address, phone number, and email when you place an order or reach out to us.</li>
+          <li><b>Price-alert sign-ups</b> &mdash; the email address you give us to receive spot-price alerts and new-arrival notices.</li>
+          <li><b>Payment information</b> &mdash; processed securely by our payment and bank-wire providers. We do not store full card numbers on our servers.</li>
+          <li><b>Basic site data</b> &mdash; standard, non-identifying analytics (such as pages viewed) that help us keep the site fast and useful.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2><span class="dot">&#9670;</span>How we use it</h2>
+        <ul>
+          <li>To process, insure, and discreetly ship your order.</li>
+          <li>To send the price alerts and arrival notices you asked for &mdash; nothing more.</li>
+          <li>To provide real, one-on-one customer service when you call or write.</li>
+          <li>To meet our legal, tax, and recordkeeping obligations.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2><span class="dot">&#9670;</span>What we never do</h2>
+        <p>We never sell, rent, or trade your personal information. We share it only with the partners required to complete what you asked us to do &mdash; for example, an insured carrier to deliver your order or a payment processor to handle a transaction &mdash; and only the minimum they need.</p>
+      </section>
+
+      <section>
+        <h2><span class="dot">&#9670;</span>How we protect it</h2>
+        <p>Our site runs over encrypted (SSL) connections, and checkout is handled through PCI-compliant providers. Every order ships in plain, unmarked packaging with no indication of the contents, signature required on delivery.</p>
+      </section>
+
+      <section>
+        <h2><span class="dot">&#9670;</span>Your choices</h2>
+        <p>You can unsubscribe from price alerts at any time using the link in any email. To review, update, or delete the information we hold about you, just call us at <a class="inline" href="tel:8505851115">(850)&nbsp;585-1115</a> or email <a class="inline" href="mailto:hello@bcbullion.com">hello@bcbullion.com</a> and a real person will take care of it.</p>
+      </section>
+
+      <section>
+        <h2><span class="dot">&#9670;</span>Questions</h2>
+        <p>If anything here is unclear, we would rather you ask than wonder. Reach us at <a class="inline" href="mailto:hello@bcbullion.com">hello@bcbullion.com</a> or <a class="inline" href="tel:8505851115">(850)&nbsp;585-1115</a>, Monday&ndash;Friday, 9am&ndash;5pm CT.</p>
+      </section>
+    </div>
+  </div>
+
+  <p class="note">Precious metals carry market risk and can lose value; nothing here is investment, tax, or legal advice.</p>
+
+  <footer>
+    <div class="foot-in">
+      <div class="foot-grid">
+        <div>
+          <div class="mark">B.C. <b>BULLION</b></div>
+          <div class="ftag">Your Wealth Starts Here</div>
+          <p class="blurb">Family-owned precious-metals dealer in Northwest Florida. Honest pricing, insured delivery, real people &mdash; for 20+ years.</p>
+          <div class="ci">
+            <div><a href="tel:8505851115">(850) 585-1115</a></div>
+            <div><a href="mailto:hello@bcbullion.com" style="color:#9FB0C3;font-weight:400">hello@bcbullion.com</a></div>
+            <div>Northwest Florida · Online only</div>
+            <div class="dim">Mon&ndash;Fri, 9am&ndash;5pm CT</div>
+          </div>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <div class="links">
+            <a href="/#category">Shop</a>
+            <a href="/#patriotstackers">Patriot Stackers</a>
+            <a href="/#ira">Precious-Metals IRA</a>
+            <a href="/#about">About B.C.</a>
+            <a href="/#faq">FAQ</a>
+            <a href="/#contact">Contact</a>
+          </div>
+        </div>
+      </div>
+      <div class="legal">
+        <span>&copy; 2026 B.C. Bullion. All rights reserved. · <a href="/privacy.html">Privacy Policy</a></span>
+        <span><a href="/">Return to homepage</a></span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
