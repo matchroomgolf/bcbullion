@@ -8,11 +8,9 @@
   "image": "/assets/catalog/gold/0.jpg",
   "gallery": [
    "/assets/catalog/gold/0.jpg",
-   "/assets/catalog/galleries/1oz-gold-american-eagle-b-u-random-year/0.jpg",
-   "/assets/catalog/galleries/1oz-gold-american-eagle-b-u-random-year/1.jpg"
+   "/assets/catalog/galleries/1oz-gold-american-eagle-b-u-random-year/0.jpg"
   ],
   "gallery_bgs": [
-   "rgb(255,255,255)",
    "rgb(255,255,255)",
    "rgb(255,255,255)"
   ],
@@ -40,13 +38,11 @@
   "gallery": [
    "/assets/catalog/gold/1.jpg",
    "/assets/catalog/galleries/1-oz-tombstone-hammered-gold-round/0.jpg",
-   "/assets/catalog/galleries/1-oz-tombstone-hammered-gold-round/1.jpg",
    "/assets/catalog/galleries/1-oz-tombstone-hammered-gold-round/2.jpg"
   ],
   "gallery_bgs": [
    "rgb(255,255,255)",
    "rgb(75,61,50)",
-   "rgb(255,255,255)",
    "rgb(63,49,36)"
   ],
   "source_url": "https://bcbullion.com/product/1-oz-tombstone-hammered-gold-round/",
@@ -68,13 +64,11 @@
   "image": "/assets/catalog/gold/2.jpg",
   "gallery": [
    "/assets/catalog/gold/2.jpg",
-   "/assets/catalog/galleries/1-oz-scottsdale-gold-bar/0.jpg",
-   "/assets/catalog/galleries/1-oz-scottsdale-gold-bar/1.jpg"
+   "/assets/catalog/galleries/1-oz-scottsdale-gold-bar/0.jpg"
   ],
   "gallery_bgs": [
    "rgb(222,222,222)",
-   "rgb(255,255,255)",
-   "rgb(222,222,222)"
+   "rgb(255,255,255)"
   ],
   "source_url": "https://bcbullion.com/product/1-oz-scottsdale-gold-bar/",
   "specs": {
@@ -95,13 +89,11 @@
   "image": "/assets/catalog/gold/3.jpg",
   "gallery": [
    "/assets/catalog/gold/3.jpg",
-   "/assets/catalog/galleries/100-gram-scottsdale-gold-bar-3-215-oz/0.jpg",
    "/assets/catalog/galleries/100-gram-scottsdale-gold-bar-3-215-oz/1.jpg",
    "/assets/catalog/galleries/100-gram-scottsdale-gold-bar-3-215-oz/2.jpg",
    "/assets/catalog/galleries/100-gram-scottsdale-gold-bar-3-215-oz/3.jpg"
   ],
   "gallery_bgs": [
-   "rgb(255,255,255)",
    "rgb(255,255,255)",
    "rgb(255,255,255)",
    "rgb(255,255,255)",
@@ -126,11 +118,9 @@
   "image": "/assets/catalog/gold/4.jpeg",
   "gallery": [
    "/assets/catalog/gold/4.jpeg",
-   "/assets/catalog/galleries/1oz-gold-bar-valcambi-in-assay/0.jpg",
-   "/assets/catalog/galleries/1oz-gold-bar-valcambi-in-assay/1.jpg"
+   "/assets/catalog/galleries/1oz-gold-bar-valcambi-in-assay/0.jpg"
   ],
   "gallery_bgs": [
-   "rgb(255,255,255)",
    "rgb(255,255,255)",
    "rgb(255,255,255)"
   ],
@@ -153,13 +143,9 @@
   "price": "as low as $979.16",
   "image": "/assets/catalog/gold/5.jpg",
   "gallery": [
-   "/assets/catalog/gold/5.jpg",
-   "/assets/catalog/galleries/2017-barbados-trident-15oz-gold-coin/0.jpg",
-   "/assets/catalog/galleries/2017-barbados-trident-15oz-gold-coin/1.jpg"
+   "/assets/catalog/gold/5.jpg"
   ],
   "gallery_bgs": [
-   "rgb(255,255,255)",
-   "rgb(255,255,255)",
    "rgb(255,255,255)"
   ],
   "source_url": "https://bcbullion.com/product/2017-barbados-trident-15oz-gold-coin/",
@@ -204,7 +190,6 @@
   "gallery": [
    "/assets/catalog/silver/0.jpg",
    "/assets/catalog/galleries/1-kilo-tombstone-silver-nugget/0.jpg",
-   "/assets/catalog/galleries/1-kilo-tombstone-silver-nugget/1.jpg",
    "/assets/catalog/galleries/1-kilo-tombstone-silver-nugget/2.jpg",
    "/assets/catalog/galleries/1-kilo-tombstone-silver-nugget/3.jpg",
    "/assets/catalog/galleries/1-kilo-tombstone-silver-nugget/4.jpg"
@@ -212,7 +197,6 @@
   "gallery_bgs": [
    "rgb(0,0,0)",
    "rgb(22,12,10)",
-   "rgb(0,0,0)",
    "rgb(0,0,0)",
    "rgb(0,0,0)",
    "rgb(19,18,16)"
@@ -236,11 +220,9 @@
   "image": "/assets/catalog/silver/1.jpg",
   "gallery": [
    "/assets/catalog/silver/1.jpg",
-   "/assets/catalog/galleries/1-oz-american-silver-eagle-random-years/0.jpg",
-   "/assets/catalog/galleries/1-oz-american-silver-eagle-random-years/1.jpg"
+   "/assets/catalog/galleries/1-oz-american-silver-eagle-random-years/0.jpg"
   ],
   "gallery_bgs": [
-   "rgb(255,255,255)",
    "rgb(255,255,255)",
    "rgb(255,255,255)"
   ],
@@ -268,7 +250,6 @@
   "gallery": [
    "/assets/catalog/silver/2.jpg",
    "/assets/catalog/galleries/10-oz-scottsdale-chunky-cast-bar/0.jpg",
-   "/assets/catalog/galleries/10-oz-scottsdale-chunky-cast-bar/1.jpg",
    "/assets/catalog/galleries/10-oz-scottsdale-chunky-cast-bar/2.jpg",
    "/assets/catalog/galleries/10-oz-scottsdale-chunky-cast-bar/3.jpg",
    "/assets/catalog/galleries/10-oz-scottsdale-chunky-cast-bar/4.jpg"
@@ -276,7 +257,6 @@
   "gallery_bgs": [
    "rgb(255,255,255)",
    "rgb(22,22,22)",
-   "rgb(255,255,255)",
    "rgb(13,13,15)",
    "rgb(15,15,17)",
    "rgb(21,22,26)"
@@ -301,13 +281,11 @@
   "gallery": [
    "/assets/catalog/silver/3.jpg",
    "/assets/catalog/galleries/10-oz-tombstone-silver-nugget/0.jpg",
-   "/assets/catalog/galleries/10-oz-tombstone-silver-nugget/1.jpg",
    "/assets/catalog/galleries/10-oz-tombstone-silver-nugget/2.jpg"
   ],
   "gallery_bgs": [
    "rgb(0,0,0)",
    "rgb(176,176,176)",
-   "rgb(0,0,0)",
    "rgb(0,0,0)"
   ],
   "source_url": "https://bcbullion.com/product/10-oz-tombstone-silver-nugget/",
@@ -329,13 +307,11 @@
   "image": "/assets/catalog/silver/4.jpg",
   "gallery": [
    "/assets/catalog/silver/4.jpg",
-   "/assets/catalog/galleries/100-oz-scottsdale-king-stacker/0.jpg",
-   "/assets/catalog/galleries/100-oz-scottsdale-king-stacker/1.jpg"
+   "/assets/catalog/galleries/100-oz-scottsdale-king-stacker/0.jpg"
   ],
   "gallery_bgs": [
    "rgb(204,204,204)",
-   "rgb(127,127,127)",
-   "rgb(204,204,204)"
+   "rgb(127,127,127)"
   ],
   "source_url": "https://bcbullion.com/product/100-oz-scottsdale-king-stacker/",
   "specs": {
@@ -355,11 +331,9 @@
   "price": "as low as $250.73",
   "image": "/assets/catalog/silver/5.jpg",
   "gallery": [
-   "/assets/catalog/silver/5.jpg",
-   "/assets/catalog/galleries/100g-scottsdale-stacker-round/0.jpg"
+   "/assets/catalog/silver/5.jpg"
   ],
   "gallery_bgs": [
-   "rgb(255,255,255)",
    "rgb(255,255,255)"
   ],
   "source_url": "https://bcbullion.com/product/100g-scottsdale-stacker-round/",
@@ -380,13 +354,11 @@
   "image": "/assets/catalog/silver/6.jpg",
   "gallery": [
    "/assets/catalog/silver/6.jpg",
-   "/assets/catalog/galleries/2-oz-scottsdale-stacker-round/0.jpg",
    "/assets/catalog/galleries/2-oz-scottsdale-stacker-round/1.jpg",
    "/assets/catalog/galleries/2-oz-scottsdale-stacker-round/2.jpg"
   ],
   "gallery_bgs": [
    "rgb(149,149,149)",
-   "rgb(147,147,147)",
    "rgb(68,68,70)",
    "rgb(255,255,255)"
   ],
@@ -410,14 +382,12 @@
   "gallery": [
    "/assets/catalog/silver/7.jpg",
    "/assets/catalog/galleries/20-oz-scottsdale-long-cast-bar/0.jpg",
-   "/assets/catalog/galleries/20-oz-scottsdale-long-cast-bar/1.jpg",
    "/assets/catalog/galleries/20-oz-scottsdale-long-cast-bar/2.jpg",
    "/assets/catalog/galleries/20-oz-scottsdale-long-cast-bar/3.jpg"
   ],
   "gallery_bgs": [
    "rgb(0,0,0)",
    "rgb(23,23,23)",
-   "rgb(0,0,0)",
    "rgb(15,15,13)",
    "rgb(13,12,10)"
   ],
@@ -440,13 +410,11 @@
   "image": "/assets/catalog/silver/8.png",
   "gallery": [
    "/assets/catalog/silver/8.png",
-   "/assets/catalog/galleries/5-oz-scottsdale-stacker-round/0.jpg",
-   "/assets/catalog/galleries/5-oz-scottsdale-stacker-round/1.png"
+   "/assets/catalog/galleries/5-oz-scottsdale-stacker-round/0.jpg"
   ],
   "gallery_bgs": [
    "rgb(231,231,231)",
-   "rgb(147,147,147)",
-   "rgb(231,231,231)"
+   "rgb(147,147,147)"
   ],
   "source_url": "https://bcbullion.com/product/5-oz-scottsdale-stacker-round/",
   "specs": {
@@ -468,14 +436,12 @@
   "gallery": [
    "/assets/catalog/silver/9.jpg",
    "/assets/catalog/galleries/5-oz-scottsdale-cast-bar/0.jpg",
-   "/assets/catalog/galleries/5-oz-scottsdale-cast-bar/1.jpg",
    "/assets/catalog/galleries/5-oz-scottsdale-cast-bar/2.jpg",
    "/assets/catalog/galleries/5-oz-scottsdale-cast-bar/3.jpg"
   ],
   "gallery_bgs": [
    "rgb(13,12,13)",
    "rgb(23,23,23)",
-   "rgb(13,12,13)",
    "rgb(15,15,15)",
    "rgb(19,19,19)"
   ],
@@ -499,12 +465,10 @@
   "gallery": [
    "/assets/catalog/silver/10.jpg",
    "/assets/catalog/galleries/5-oz-tombstone-silver-nugget/0.jpg",
-   "/assets/catalog/galleries/5-oz-tombstone-silver-nugget/1.jpg",
    "/assets/catalog/galleries/5-oz-tombstone-silver-nugget/2.jpg",
    "/assets/catalog/galleries/5-oz-tombstone-silver-nugget/3.jpg"
   ],
   "gallery_bgs": [
-   "rgb(0,0,0)",
    "rgb(0,0,0)",
    "rgb(0,0,0)",
    "rgb(149,149,149)",
@@ -529,13 +493,11 @@
   "image": "/assets/catalog/silver/11.jpeg",
   "gallery": [
    "/assets/catalog/silver/11.jpeg",
-   "/assets/catalog/galleries/nadir-10oz-silver-bars/0.jpg",
-   "/assets/catalog/galleries/nadir-10oz-silver-bars/1.jpg"
+   "/assets/catalog/galleries/nadir-10oz-silver-bars/0.jpg"
   ],
   "gallery_bgs": [
    "rgb(4,6,5)",
-   "rgb(7,10,10)",
-   "rgb(6,7,7)"
+   "rgb(7,10,10)"
   ],
   "source_url": "https://bcbullion.com/product/nadir-10oz-silver-bars/",
   "specs": {
@@ -556,13 +518,11 @@
   "image": "/assets/catalog/silver/12.jpg",
   "gallery": [
    "/assets/catalog/silver/12.jpg",
-   "/assets/catalog/galleries/scottsdale-reserve-kilo/0.jpg",
-   "/assets/catalog/galleries/scottsdale-reserve-kilo/1.jpg"
+   "/assets/catalog/galleries/scottsdale-reserve-kilo/0.jpg"
   ],
   "gallery_bgs": [
    "rgb(255,255,255)",
-   "rgb(171,172,176)",
-   "rgb(255,255,255)"
+   "rgb(171,172,176)"
   ],
   "source_url": "https://bcbullion.com/product/scottsdale-reserve-kilo/",
   "specs": {
@@ -583,13 +543,11 @@
   "gallery": [
    "/assets/catalog/silver/13.jpg",
    "/assets/catalog/galleries/scottsdale-10-oz-stacker/0.jpg",
-   "/assets/catalog/galleries/scottsdale-10-oz-stacker/1.jpg",
    "/assets/catalog/galleries/scottsdale-10-oz-stacker/2.jpg"
   ],
   "gallery_bgs": [
    "rgb(156,156,156)",
    "rgb(15,15,17)",
-   "rgb(155,155,155)",
    "rgb(183,184,188)"
   ],
   "source_url": "https://bcbullion.com/product/scottsdale-10-oz-stacker/",
@@ -609,13 +567,9 @@
   "price": "as low as $2,388.27",
   "image": "/assets/catalog/silver/14.jpg",
   "gallery": [
-   "/assets/catalog/silver/14.jpg",
-   "/assets/catalog/galleries/kilo-stacker-patriot-metals/0.jpg",
-   "/assets/catalog/galleries/kilo-stacker-patriot-metals/1.jpg"
+   "/assets/catalog/silver/14.jpg"
   ],
   "gallery_bgs": [
-   "rgb(202,202,202)",
-   "rgb(213,213,213)",
    "rgb(202,202,202)"
   ],
   "source_url": "https://bcbullion.com/product/kilo-stacker-patriot-metals/",
@@ -639,13 +593,11 @@
   "gallery": [
    "/assets/catalog/silver/15.jpg",
    "/assets/catalog/galleries/100-oz-stacker-patriot-metals/0.jpg",
-   "/assets/catalog/galleries/100-oz-stacker-patriot-metals/1.jpg",
    "/assets/catalog/galleries/100-oz-stacker-patriot-metals/2.jpg"
   ],
   "gallery_bgs": [
    "rgb(255,255,255)",
    "rgb(136,136,136)",
-   "rgb(255,255,255)",
    "rgb(197,197,197)"
   ],
   "source_url": "https://bcbullion.com/product/100-oz-stacker-patriot-metals/",
@@ -669,14 +621,12 @@
   "gallery": [
    "/assets/catalog/graded-coins/0.jpg",
    "/assets/catalog/galleries/2006-2023-pf70-gold-buffalo-set/0.jpg",
-   "/assets/catalog/galleries/2006-2023-pf70-gold-buffalo-set/1.jpg",
    "/assets/catalog/galleries/2006-2023-pf70-gold-buffalo-set/2.jpg",
    "/assets/catalog/galleries/2006-2023-pf70-gold-buffalo-set/3.png"
   ],
   "gallery_bgs": [
    "rgb(11,5,0)",
    "rgb(20,21,26)",
-   "rgb(10,6,0)",
    "rgb(1,4,8)",
    "rgb(8,10,22)"
   ],
@@ -698,11 +648,9 @@
   "price": "as low as $280.00",
   "image": "/assets/catalog/graded-coins/1.jpeg",
   "gallery": [
-   "/assets/catalog/graded-coins/1.jpeg",
-   "/assets/catalog/galleries/2019-pride-of-two-nations-2-coin-set-pr-70-pcgs/0.jpg"
+   "/assets/catalog/graded-coins/1.jpeg"
   ],
   "gallery_bgs": [
-   "rgb(12,14,13)",
    "rgb(12,14,13)"
   ],
   "source_url": "https://bcbullion.com/product/2019-pride-of-two-nations-2-coin-set-pr-70-pcgs/",
@@ -723,13 +671,9 @@
   "price": "as low as $179.00",
   "image": "/assets/catalog/biblical-coins/0.jpg",
   "gallery": [
-   "/assets/catalog/biblical-coins/0.jpg",
-   "/assets/catalog/galleries/biblical-series-2016-adam-eve/0.jpg",
-   "/assets/catalog/galleries/biblical-series-2016-adam-eve/1.jpg"
+   "/assets/catalog/biblical-coins/0.jpg"
   ],
   "gallery_bgs": [
-   "rgb(255,255,255)",
-   "rgb(255,255,255)",
    "rgb(255,255,255)"
   ],
   "source_url": "https://bcbullion.com/product/biblical-series-2016-adam-eve/",
@@ -750,11 +694,9 @@
   "price": "as low as $179.00",
   "image": "/assets/catalog/biblical-coins/1.jpg",
   "gallery": [
-   "/assets/catalog/biblical-coins/1.jpg",
-   "/assets/catalog/galleries/biblical-series-2016-good-samaritan/0.jpg"
+   "/assets/catalog/biblical-coins/1.jpg"
   ],
   "gallery_bgs": [
-   "rgb(255,255,255)",
    "rgb(255,255,255)"
   ],
   "source_url": "https://bcbullion.com/product/biblical-series-2016-good-samaritan/",
@@ -775,11 +717,9 @@
   "image": "/assets/catalog/biblical-coins/2.jpg",
   "gallery": [
    "/assets/catalog/biblical-coins/2.jpg",
-   "/assets/catalog/galleries/biblical-series-2016-the-nativity/0.jpg",
-   "/assets/catalog/galleries/biblical-series-2016-the-nativity/1.jpg"
+   "/assets/catalog/galleries/biblical-series-2016-the-nativity/0.jpg"
   ],
   "gallery_bgs": [
-   "rgb(255,255,255)",
    "rgb(255,255,255)",
    "rgb(255,255,255)"
   ],
@@ -800,11 +740,9 @@
   "price": "as low as $179.00",
   "image": "/assets/catalog/biblical-coins/3.jpg",
   "gallery": [
-   "/assets/catalog/biblical-coins/3.jpg",
-   "/assets/catalog/galleries/biblical-series-2016-valley-dry-bones/0.jpg"
+   "/assets/catalog/biblical-coins/3.jpg"
   ],
   "gallery_bgs": [
-   "rgb(255,255,255)",
    "rgb(255,255,255)"
   ],
   "source_url": "https://bcbullion.com/product/biblical-series-2016-valley-dry-bones/",
@@ -824,13 +762,9 @@
   "price": "as low as $179.00",
   "image": "/assets/catalog/biblical-coins/4.jpg",
   "gallery": [
-   "/assets/catalog/biblical-coins/4.jpg",
-   "/assets/catalog/galleries/biblical-series-2017-baptism-jesus/0.jpg",
-   "/assets/catalog/galleries/biblical-series-2017-baptism-jesus/1.jpg"
+   "/assets/catalog/biblical-coins/4.jpg"
   ],
   "gallery_bgs": [
-   "rgb(255,255,255)",
-   "rgb(255,255,255)",
    "rgb(255,255,255)"
   ],
   "source_url": "https://bcbullion.com/product/biblical-series-2017-baptism-jesus/",
@@ -852,11 +786,9 @@
   "image": "/assets/catalog/biblical-coins/5.jpg",
   "gallery": [
    "/assets/catalog/biblical-coins/5.jpg",
-   "/assets/catalog/galleries/biblical-series-2017-jacob-wrestles-angel/0.jpg",
-   "/assets/catalog/galleries/biblical-series-2017-jacob-wrestles-angel/1.jpg"
+   "/assets/catalog/galleries/biblical-series-2017-jacob-wrestles-angel/0.jpg"
   ],
   "gallery_bgs": [
-   "rgb(255,255,255)",
    "rgb(255,255,255)",
    "rgb(255,255,255)"
   ],
@@ -879,11 +811,9 @@
   "image": "/assets/catalog/biblical-coins/6.jpg",
   "gallery": [
    "/assets/catalog/biblical-coins/6.jpg",
-   "/assets/catalog/galleries/biblical-series-2017-jesus-calms-sea/0.jpg",
-   "/assets/catalog/galleries/biblical-series-2017-jesus-calms-sea/1.jpg"
+   "/assets/catalog/galleries/biblical-series-2017-jesus-calms-sea/0.jpg"
   ],
   "gallery_bgs": [
-   "rgb(255,255,255)",
    "rgb(255,255,255)",
    "rgb(255,255,255)"
   ],
@@ -905,13 +835,9 @@
   "price": "as low as $179.00",
   "image": "/assets/catalog/biblical-coins/7.jpg",
   "gallery": [
-   "/assets/catalog/biblical-coins/7.jpg",
-   "/assets/catalog/galleries/biblical-series-2017-nailing-christ-cross/0.jpg",
-   "/assets/catalog/galleries/biblical-series-2017-nailing-christ-cross/1.jpg"
+   "/assets/catalog/biblical-coins/7.jpg"
   ],
   "gallery_bgs": [
-   "rgb(255,255,255)",
-   "rgb(255,255,255)",
    "rgb(255,255,255)"
   ],
   "source_url": "https://bcbullion.com/product/biblical-series-2017-nailing-christ-cross/",
@@ -933,13 +859,9 @@
   "image": "/assets/catalog/biblical-coins/8.jpg",
   "gallery": [
    "/assets/catalog/biblical-coins/8.jpg",
-   "/assets/catalog/galleries/biblical-series-2017-death-able/0.jpg",
-   "/assets/catalog/galleries/biblical-series-2017-death-able/1.jpg",
    "/assets/catalog/galleries/biblical-series-2017-death-able/2.jpg"
   ],
   "gallery_bgs": [
-   "rgb(255,255,255)",
-   "rgb(255,255,255)",
    "rgb(255,255,255)",
    "rgb(255,255,255)"
   ],
@@ -961,11 +883,9 @@
   "price": "as low as $179.00",
   "image": "/assets/catalog/biblical-coins/9.jpg",
   "gallery": [
-   "/assets/catalog/biblical-coins/9.jpg",
-   "/assets/catalog/galleries/biblical-series-2017-wise-men/0.jpg"
+   "/assets/catalog/biblical-coins/9.jpg"
   ],
   "gallery_bgs": [
-   "rgb(255,255,255)",
    "rgb(255,255,255)"
   ],
   "source_url": "https://bcbullion.com/product/biblical-series-2017-wise-men/",
@@ -988,11 +908,9 @@
   "gallery": [
    "/assets/catalog/biblical-coins/10.jpg",
    "/assets/catalog/galleries/biblical-series-2018-jesus-scourged/0.jpg",
-   "/assets/catalog/galleries/biblical-series-2018-jesus-scourged/1.jpg",
    "/assets/catalog/galleries/biblical-series-2018-jesus-scourged/2.jpg"
   ],
   "gallery_bgs": [
-   "rgb(255,255,255)",
    "rgb(255,255,255)",
    "rgb(255,255,255)",
    "rgb(255,255,255)"
@@ -1015,13 +933,9 @@
   "price": "as low as $179.00",
   "image": "/assets/catalog/biblical-coins/11.jpg",
   "gallery": [
-   "/assets/catalog/biblical-coins/11.jpg",
-   "/assets/catalog/galleries/biblical-series-2018-noahs-dove/0.jpg",
-   "/assets/catalog/galleries/biblical-series-2018-noahs-dove/1.jpg"
+   "/assets/catalog/biblical-coins/11.jpg"
   ],
   "gallery_bgs": [
-   "rgb(255,255,255)",
-   "rgb(255,255,255)",
    "rgb(255,255,255)"
   ],
   "source_url": "https://bcbullion.com/product/biblical-series-2018-noahs-dove/",
@@ -1044,13 +958,11 @@
   "gallery": [
    "/assets/catalog/biblical-coins/12.jpg",
    "/assets/catalog/galleries/biblical-series-2018-chariot-fire/0.jpg",
-   "/assets/catalog/galleries/biblical-series-2018-chariot-fire/1.jpg",
    "/assets/catalog/galleries/biblical-series-2018-chariot-fire/2.jpg",
    "/assets/catalog/galleries/biblical-series-2018-chariot-fire/3.jpg",
    "/assets/catalog/galleries/biblical-series-2018-chariot-fire/4.jpg"
   ],
   "gallery_bgs": [
-   "rgb(255,255,255)",
    "rgb(255,255,255)",
    "rgb(255,255,255)",
    "rgb(255,255,255)",
