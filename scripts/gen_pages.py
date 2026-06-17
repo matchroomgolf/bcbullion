@@ -110,6 +110,38 @@ CSS = """
   .step p{font-size:13.5px;color:#6E6A5C;margin:0;line-height:1.5}
   @media(max-width:760px){.vals,.ct-grid,.foot-grid{grid-template-columns:1fr}.frm .row{grid-template-columns:1fr}.brand .tag{display:none}nav.main{gap:16px;font-size:13px}.pgrid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}.shopnote{flex-direction:column;align-items:flex-start}}
 """
+# ---- product detail page (PDP) styles ----
+CSS += """
+  .pdp{max-width:1060px;margin:0 auto;padding:28px 24px 4px}
+  .crumb{font-size:12.5px;color:#8A8270;margin-bottom:20px}
+  .crumb a{color:#8A6D24;text-decoration:none}.crumb a:hover{text-decoration:underline}
+  .crumb span{color:#C0B69E;margin:0 8px}
+  .pdp-top{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+  .pdp-figure{position:relative;background:linear-gradient(180deg,#FFFFFF,#F3EFE6);border:1px solid var(--line);border-radius:18px;padding:34px;box-shadow:0 16px 40px rgba(14,27,44,.08);overflow:hidden}
+  .pdp-figure img{width:100%;height:auto;max-height:430px;object-fit:contain;display:block;filter:drop-shadow(0 14px 22px rgba(14,27,44,.14));transition:transform .55s cubic-bezier(.2,.7,.2,1)}
+  .pdp-figure:hover img{transform:scale(1.07)}
+  .pdp-badge{position:absolute;top:16px;left:16px;background:var(--navy);color:var(--gold-soft);font-size:10.5px;letter-spacing:1.3px;text-transform:uppercase;font-weight:700;padding:6px 12px;border-radius:20px}
+  .pdp-stock{position:absolute;top:18px;right:18px;display:flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:.5px;color:#2E9B66}
+  .pdp-stock .d{width:7px;height:7px;border-radius:50%;background:#2E9B66}
+  .pdp-eyebrow{font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-deep);font-weight:700;margin-bottom:11px}
+  .pdp-details h1{font-family:'Cinzel',serif;font-weight:700;font-size:clamp(25px,3.2vw,34px);color:var(--navy);line-height:1.13;margin-bottom:13px}
+  .pdp-tag{font-size:15px;color:#54503F;margin-bottom:20px;line-height:1.55}
+  .pdp-price{display:flex;align-items:center;justify-content:space-between;gap:14px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:15px 0;margin-bottom:22px}
+  .pdp-price .lbl{font-size:10.5px;text-transform:uppercase;letter-spacing:.6px;color:#8A8270;margin-bottom:3px}
+  .pdp-price .amt{font-family:'Inter';font-weight:700;font-size:29px;color:var(--navy);font-variant-numeric:tabular-nums;line-height:1}
+  .pdp-price .note{font-size:11.5px;color:#8A8270;text-align:right;line-height:1.45}
+  .spec-table{width:100%;border-collapse:collapse;margin-bottom:24px}
+  .spec-table th,.spec-table td{text-align:left;padding:9px 2px;border-bottom:1px solid var(--line);font-size:13.8px;vertical-align:top}
+  .spec-table th{color:#8A8270;font-weight:600;width:44%;letter-spacing:.2px}
+  .spec-table td{color:var(--navy);font-weight:600}
+  .pdp-cta{display:flex;flex-wrap:wrap;gap:11px;margin-bottom:14px}
+  .pdp-cta .buy{flex:1 1 220px;text-align:center;background:linear-gradient(135deg,var(--gold-soft),var(--gold) 55%,#9C7A2E);color:var(--navy);font-weight:700;font-size:14.5px;padding:15px 22px;border-radius:10px;text-decoration:none;letter-spacing:.3px}
+  .pdp-cta .email{flex:0 0 auto;text-align:center;background:#fff;border:1px solid var(--line);color:var(--navy);font-weight:600;font-size:14px;padding:15px 20px;border-radius:10px;text-decoration:none}
+  .pdp-cta .email:hover{border-color:var(--gold)}
+  .pdp-assure{font-size:12px;color:#6E6A5C;display:flex;flex-wrap:wrap;gap:7px 16px}
+  .pdp-assure span{display:flex;align-items:center;gap:6px}.pdp-assure .g{color:var(--gold-deep);font-size:9px}
+  @media(max-width:820px){.pdp-top{grid-template-columns:1fr;gap:24px}.pdp-figure{padding:26px}}
+"""
 
 def header(active):
     def a(href,label,key):
@@ -338,6 +370,11 @@ privacy_body = """  <div class="wrap">
 # ---------------- CATEGORY (SHOP) PAGES — real catalog from bcbullion.com ----------------
 import json as _json
 CATALOG = _json.load(open(os.path.join(OUT,'scripts','catalog.json'), encoding='utf-8'))
+import re as _re
+PRODUCTS = _json.load(open(os.path.join(OUT,'scripts','product_data.json'), encoding='utf-8'))
+def _norm(s): return _re.sub(r'[^a-z0-9]','',(s or '').lower())
+SLUG_BY_TITLE = {_norm(p['title']): p['slug'] for p in PRODUCTS}
+def product_slug(title): return SLUG_BY_TITLE.get(_norm(title))
 CAT_ORDER = [('gold','Gold'),('silver','Silver'),('graded-coins','Graded Coins'),
              ('patriot-stackers','Patriot Stackers'),('biblical-coins','Biblical Coins')]
 CAT_SUB = {'gold':'.9999 fine gold bars &amp; coins','silver':'.999 fine rounds, bars &amp; coins',
@@ -353,16 +390,21 @@ def catnav(active):
     return '<div class="chips">'+''.join(out)+'</div>'
 
 def pcard(p):
-    img=p.get('local') or p.get('img') or ''
+    img=p.get('local') or p.get('image') or p.get('img') or ''
     title=esc(p['title'].replace('*',''))
     price=p.get('price') or ''
     if '$' in price:
         pre,amt=price.split('$',1); pr=f'<div class="pprice">{esc(pre.strip())} <b>${esc(amt.strip())}</b></div>'
     else:
         pr=f'<div class="pprice">{esc(price)}</div>' if price else ''
-    return (f'<a class="pcard" href="tel:8505851115" title="Call to order">'
+    slug=product_slug(p['title'])
+    if slug:
+        href=f'/p/{slug}.html'; cta='View details &rarr;'; ttl='View details'
+    else:
+        href='tel:8505851115'; cta='Call to order &rarr;'; ttl='Call to order'
+    return (f'<a class="pcard" href="{href}" title="{ttl}">'
             f'<div class="pimg"><img src="{img}" alt="{title}" loading="lazy"></div>'
-            f'<div class="pinfo"><h3>{title}</h3>{pr}<div class="porder">Call to order &rarr;</div></div></a>')
+            f'<div class="pinfo"><h3>{title}</h3>{pr}<div class="porder">{cta}</div></div></a>')
 
 def category_page(slug,name):
     prods=CATALOG[slug]['products']
@@ -405,6 +447,56 @@ ira_body = """  <div class="wrap">
     </div>
   </div>"""
 
+SPEC_ORDER = ['Metal','Weight','Fineness','Purity','Metal Content','Mint / Maker','Designer',
+              'Form','Diameter','Thickness','Edge','Packaging','Certification']
+def product_page(p):
+    title=esc(p['title'].replace('*',''))
+    cat=p['category']; catlbl=esc(p['category_label'])
+    price=p.get('price') or ''
+    if '$' in price:
+        pre=esc(price.split('$',1)[0].strip()) or 'As low as'; amt='$'+esc(price.split('$',1)[1].strip())
+    else:
+        pre='Price'; amt=esc(price) or 'Call for price'
+    sp=p.get('specs',{})
+    metal=sp.get('Metal',''); fine=sp.get('Fineness','') or sp.get('Purity','')
+    badge=' &middot; '.join([x for x in [esc(metal), esc(fine).replace(' fine','')] if x]) or 'B.C. Bullion'
+    sep='<span>&rsaquo;</span>'
+    crumb=f'<div class="crumb"><a href="/">Home</a>{sep}<a href="/{cat}.html">{catlbl}</a>{sep}{title}</div>'
+    fig=(f'<div class="pdp-figure"><span class="pdp-badge">{badge}</span>'
+         f'<span class="pdp-stock"><span class="d"></span>In stock</span>'
+         f'<img src="{esc(p.get("image",""))}" alt="{title}" loading="lazy"></div>')
+    rows=''.join(f'<tr><th>{esc(k)}</th><td>{esc(sp[k])}</td></tr>' for k in SPEC_ORDER if k in sp)
+    spec=f'<table class="spec-table"><tbody>{rows}</tbody></table>' if rows else ''
+    pblock=(f'<div class="pdp-price"><div><div class="lbl">{pre}</div><div class="amt">{amt}</div></div>'
+            f'<div class="note">Locked when you order &mdash;<br>tracks the live spot price.</div></div>')
+    tag='Transparent spot-based pricing, fully insured &amp; discreet shipping, backed by our buyback guarantee.'
+    subj='Order%20inquiry:%20'+_re.sub(r'[^A-Za-z0-9 ]','',p['title']).strip().replace(' ','%20')[:90]
+    cta=(f'<div class="pdp-cta"><a class="buy" href="tel:8505851115">Call (850) 585-1115 to order</a>'
+         f'<a class="email" href="mailto:hello@bcbullion.com?subject={subj}">Email us</a></div>'
+         f'<div class="pdp-assure"><span><b class="g">&#9670;</b> Free insured shipping over $199</span>'
+         f'<span><b class="g">&#9670;</b> Buyback guarantee</span>'
+         f'<span><b class="g">&#9670;</b> Discreet, signature-required delivery</span></div>')
+    details=(f'<div class="pdp-details"><div class="pdp-eyebrow">{catlbl}</div><h1>{title}</h1>'
+             f'<p class="pdp-tag">{tag}</p>{pblock}{spec}{cta}</div>')
+    top=f'<div class="pdp">{crumb}<div class="pdp-top">{fig}{details}</div></div>'
+    desc_html=''
+    if p.get('description') and len(p['description'])>30:
+        desc_html=f'<section><h2><span class="dot">&#9670;</span>About this product</h2><p>{esc(p["description"])}</p></section>'
+    how=('<section><h2><span class="dot">&#9670;</span>How ordering works</h2><div class="steps">'
+         '<div class="step"><div class="n">1</div><div><h3>Call or email</h3><p>Tell us what you want; we lock your price against live spot the moment you confirm.</p></div></div>'
+         '<div class="step"><div class="n">2</div><div><h3>Pay your way</h3><p>Major card, bank wire, or personal check &mdash; wire &amp; check orders save vs. card.</p></div></div>'
+         '<div class="step"><div class="n">3</div><div><h3>Insured, discreet delivery</h3><p>Plain, unmarked, signature-required and insured door to door.</p></div></div>'
+         '</div></section>')
+    rel=[q for q in PRODUCTS if q['category']==cat and q['slug']!=p['slug']][:4]
+    related=''
+    if rel:
+        cards=''.join(pcard(q) for q in rel)
+        related=(f'<div style="margin-top:30px"><h2 style="font-family:\'Cinzel\',serif;color:var(--navy);font-size:20px;margin-bottom:16px">More in {catlbl}</h2>'
+                 f'<div class="pgrid">{cards}</div></div>')
+    body=f'{top}<div class="wrap" style="padding-top:26px"><div class="card">{desc_html}{how}</div>{related}</div>'
+    metatxt=esc(f'{p["title"]} — {fine} {metal.lower()} from B.C. Bullion. Spot-based pricing, insured discreet shipping, buyback guarantee.')
+    return page(title, metatxt, 'shop', '', body)
+
 pages = {
  'ira.html': page('Gold &amp; Silver IRA','Diversify your retirement with IRS-approved physical gold and silver. B.C. Bullion makes a precious-metals IRA simple.','ira',
     band('Precious-metals IRA','Gold &amp; Silver IRAs','Diversify your retirement with physical metals &mdash; held in your name, in an insured, IRS-approved depository.'), ira_body),
@@ -422,3 +514,9 @@ for slug,name in CAT_ORDER:
 for fn,html in pages.items():
     open(os.path.join(OUT,fn),'w',encoding='utf-8').write(html)
     print(f"wrote {fn} ({len(html)} bytes)")
+
+# ---- product detail pages ----
+os.makedirs(os.path.join(OUT,'p'), exist_ok=True)
+for p in PRODUCTS:
+    open(os.path.join(OUT,'p',f"{p['slug']}.html"),'w',encoding='utf-8').write(product_page(p))
+print(f"wrote {len(PRODUCTS)} product pages -> /p/")
