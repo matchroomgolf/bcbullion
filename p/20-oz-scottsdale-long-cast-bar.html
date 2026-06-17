@@ -156,6 +156,45 @@
   .pdp-assure{font-size:12px;color:#6E6A5C;display:flex;flex-wrap:wrap;gap:7px 16px}
   .pdp-assure span{display:flex;align-items:center;gap:6px}.pdp-assure .g{color:var(--gold-deep);font-size:9px}
   @media(max-width:820px){.pdp-top{grid-template-columns:1fr;gap:24px}.pdp-figure{padding:26px}}
+
+  .hdr-right{display:flex;align-items:center;gap:14px}
+  .hdr-cart{position:relative;display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:9px;border:1px solid rgba(198,160,74,.35);background:rgba(255,255,255,.05);color:var(--cream);cursor:pointer}
+  .hdr-cart:hover{border-color:var(--gold)}.hdr-cart svg{width:20px;height:20px}
+  .cart-badge{position:absolute;top:-7px;right:-7px;min-width:19px;height:19px;padding:0 5px;border-radius:10px;background:linear-gradient(135deg,var(--gold-soft),var(--gold) 60%,#9C7A2E);color:var(--navy);font-size:11px;font-weight:800;display:none;align-items:center;justify-content:center}
+  .cart-ov{position:fixed;inset:0;background:rgba(8,16,28,.5);opacity:0;visibility:hidden;transition:.25s;z-index:90}
+  .cart-ov.open{opacity:1;visibility:visible}
+  .cart-drawer{position:fixed;top:0;right:0;height:100%;width:382px;max-width:92vw;background:var(--cream);box-shadow:-20px 0 60px rgba(8,16,28,.3);transform:translateX(100%);transition:transform .3s cubic-bezier(.2,.7,.2,1);z-index:95;display:flex;flex-direction:column}
+  .cart-drawer.open{transform:translateX(0)}
+  .cart-head{display:flex;align-items:center;justify-content:space-between;padding:19px 22px;background:var(--navy);color:var(--cream)}
+  .cart-head h3{font-family:'Cinzel',serif;font-size:18px;font-weight:700;margin:0}
+  .cart-head button{background:none;border:0;color:var(--cream);font-size:27px;line-height:1;cursor:pointer;opacity:.85}
+  .cart-body{flex:1;overflow-y:auto;padding:6px 18px}
+  .cart-empty{text-align:center;color:#8A8270;padding:54px 12px;font-size:14px;line-height:1.7}
+  .cart-row{display:flex;gap:12px;padding:15px 0;border-bottom:1px solid var(--line)}
+  .cart-row img{width:58px;height:58px;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:8px;padding:4px;flex-shrink:0}
+  .cart-rn{font-size:13.5px;font-weight:600;color:var(--navy);line-height:1.32}
+  .cart-rp{font-size:12.5px;color:#6E6A5C;margin:2px 0 7px}
+  .cart-qty{display:flex;align-items:center;gap:8px}
+  .cart-qty button{width:24px;height:24px;border:1px solid var(--line);background:#fff;border-radius:6px;cursor:pointer;color:var(--navy);font-size:14px;line-height:1}
+  .cart-qty span{font-size:13px;font-weight:700;color:var(--navy);min-width:16px;text-align:center}
+  .cart-qty .cart-rm{width:auto;padding:0 4px;margin-left:auto;border:0;background:none;color:#A11D22;font-size:11.5px;text-decoration:underline}
+  .cart-foot{border-top:1px solid var(--line);padding:18px;background:#fff}
+  .cart-subline{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:13px;color:#6E6A5C}.cart-subline b{color:var(--navy)}
+  .cart-checkout{display:block;text-align:center;background:linear-gradient(135deg,var(--gold-soft),var(--gold) 55%,#9C7A2E);color:var(--navy);font-weight:700;font-size:15px;padding:14px;border-radius:10px;text-decoration:none;cursor:pointer}
+  .cart-foot-note{font-size:11.5px;color:#8A8270;text-align:center;margin-top:10px;line-height:1.55}
+  .bcb-toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--navy);color:var(--cream);padding:12px 22px;border-radius:10px;font-size:13.5px;font-weight:600;box-shadow:0 14px 40px rgba(8,16,28,.35);opacity:0;visibility:hidden;transition:.28s;z-index:100;border:1px solid rgba(198,160,74,.4)}
+  .bcb-toast.show{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+  .pcard-link,.pcard-tl{text-decoration:none;color:inherit;display:block}.pcard-tl h3{transition:color .2s}.pcard-tl:hover h3{color:var(--gold-deep)}
+  .pc-add{margin-top:11px;width:100%;background:var(--navy);color:var(--cream);border:0;border-radius:8px;padding:10px;font-size:12.5px;font-weight:700;letter-spacing:.4px;cursor:pointer;transition:background .2s}
+  .pc-add:hover{background:#16263C}
+  .pdp-buy{display:flex;gap:11px;margin-bottom:13px;align-items:stretch}
+  .qty{display:flex;align-items:center;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff;flex-shrink:0}
+  .qty button{width:40px;border:0;background:#fff;font-size:18px;color:var(--navy);cursor:pointer}
+  .qty input{width:44px;text-align:center;border:0;font-size:15px;font-weight:700;color:var(--navy);-moz-appearance:textfield}
+  .qty input::-webkit-outer-spin-button,.qty input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+  .pdp-buy .buy{flex:1;border:0;cursor:pointer;background:linear-gradient(135deg,var(--gold-soft),var(--gold) 55%,#9C7A2E);color:var(--navy);font-weight:700;font-size:15.5px;border-radius:10px;letter-spacing:.3px}
+  .pdp-orcall{font-size:12.5px;color:#6E6A5C;margin-top:2px}.pdp-orcall a{color:#8A6D24;font-weight:600;text-decoration:none}
+  @media(max-width:760px){.cart-drawer{width:100%}}
 </style>
 </head>
 <body>
@@ -169,11 +208,14 @@
     <div class="hdr-in">
       <a class="brand" href="/"><img class="logo" src="/assets/logo.png" alt="B.C. Bullion"><span class="tag">Your Wealth Starts Here</span></a>
       <nav class="main"><a href="/#category" class="active">Shop</a><a href="/ira.html">IRA</a><a href="/about.html">About</a><a href="/faq.html">FAQ</a><a href="/contact.html">Contact</a></nav>
-      <a class="cta" href="/#category">Shop Metals</a>
+      <div class="hdr-right">
+        <a class="cta" href="/#category">Shop Metals</a>
+        <button class="hdr-cart" data-cart-open aria-label="Open cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.3"></circle><circle cx="18" cy="20" r="1.3"></circle><path d="M2.5 3.5h2.3l2.1 11.4a1.5 1.5 0 0 0 1.5 1.2h8.7a1.5 1.5 0 0 0 1.5-1.2l1.4-7.4H6.2"></path></svg><span class="cart-badge" data-cart-count>0</span></button>
+      </div>
     </div>
   </header>
 
-<div class="pdp"><div class="crumb"><a href="/">Home</a><span>&rsaquo;</span><a href="/silver.html">Silver</a><span>&rsaquo;</span>20 oz Scottsdale Long Cast Bar</div><div class="pdp-top"><div class="pdp-figure"><span class="pdp-badge">Silver &middot; .999</span><span class="pdp-stock"><span class="d"></span>In stock</span><img src="/assets/catalog/silver/7.jpg" alt="20 oz Scottsdale Long Cast Bar" loading="lazy"></div><div class="pdp-details"><div class="pdp-eyebrow">Silver</div><h1>20 oz Scottsdale Long Cast Bar</h1><p class="pdp-tag">Transparent spot-based pricing, fully insured &amp; discreet shipping, backed by our buyback guarantee.</p><div class="pdp-price"><div><div class="lbl">as low as</div><div class="amt">$1,543.66</div></div><div class="note">Locked when you order &mdash;<br>tracks the live spot price.</div></div><table class="spec-table"><tbody><tr><th>Metal</th><td>Silver</td></tr><tr><th>Weight</th><td>20 troy oz</td></tr><tr><th>Fineness</th><td>.999 fine</td></tr><tr><th>Mint / Maker</th><td>Scottsdale Mint</td></tr><tr><th>Form</th><td>Hand-poured cast bar</td></tr></tbody></table><div class="pdp-cta"><a class="buy" href="tel:8505851115">Call (850) 585-1115 to order</a><a class="email" href="mailto:hello@bcbullion.com?subject=Order%20inquiry:%2020%20oz%20Scottsdale%20Long%20Cast%20Bar">Email us</a></div><div class="pdp-assure"><span><b class="g">&#9670;</b> Free insured shipping over $199</span><span><b class="g">&#9670;</b> Buyback guarantee</span><span><b class="g">&#9670;</b> Discreet, signature-required delivery</span></div></div></div></div><div class="wrap" style="padding-top:26px"><div class="card"><section><h2><span class="dot">&#9670;</span>How ordering works</h2><div class="steps"><div class="step"><div class="n">1</div><div><h3>Call or email</h3><p>Tell us what you want; we lock your price against live spot the moment you confirm.</p></div></div><div class="step"><div class="n">2</div><div><h3>Pay your way</h3><p>Major card, bank wire, or personal check &mdash; wire &amp; check orders save vs. card.</p></div></div><div class="step"><div class="n">3</div><div><h3>Insured, discreet delivery</h3><p>Plain, unmarked, signature-required and insured door to door.</p></div></div></div></section></div><div style="margin-top:30px"><h2 style="font-family:'Cinzel',serif;color:var(--navy);font-size:20px;margin-bottom:16px">More in Silver</h2><div class="pgrid"><a class="pcard" href="/p/1-kilo-tombstone-silver-nugget.html" title="View details"><div class="pimg"><img src="/assets/catalog/silver/0.jpg" alt="1 Kilo Tombstone Silver Nugget" loading="lazy"></div><div class="pinfo"><h3>1 Kilo Tombstone Silver Nugget</h3><div class="pprice">as low as <b>$2,482.82</b></div><div class="porder">View details &rarr;</div></div></a><a class="pcard" href="/p/1-oz-american-silver-eagle-random-years.html" title="View details"><div class="pimg"><img src="/assets/catalog/silver/1.jpg" alt="1 oz American Silver Eagle (Random Years)" loading="lazy"></div><div class="pinfo"><h3>1 oz American Silver Eagle (Random Years)</h3><div class="pprice">as low as <b>$82.67</b></div><div class="porder">View details &rarr;</div></div></a><a class="pcard" href="/p/10-oz-scottsdale-chunky-cast-bar.html" title="View details"><div class="pimg"><img src="/assets/catalog/silver/2.jpg" alt="10 oz Scottsdale “Chunky” Cast Bar" loading="lazy"></div><div class="pinfo"><h3>10 oz Scottsdale “Chunky” Cast Bar</h3><div class="pprice">as low as <b>$783.33</b></div><div class="porder">View details &rarr;</div></div></a><a class="pcard" href="/p/10-oz-tombstone-silver-nugget.html" title="View details"><div class="pimg"><img src="/assets/catalog/silver/3.jpg" alt="10 oz Tombstone Silver Nugget" loading="lazy"></div><div class="pinfo"><h3>10 oz Tombstone Silver Nugget</h3><div class="pprice">as low as <b>$772.73</b></div><div class="porder">View details &rarr;</div></div></a></div></div></div>
+<div class="pdp"><div class="crumb"><a href="/">Home</a><span>&rsaquo;</span><a href="/silver.html">Silver</a><span>&rsaquo;</span>20 oz Scottsdale Long Cast Bar</div><div class="pdp-top"><div class="pdp-figure"><span class="pdp-badge">Silver &middot; .999</span><span class="pdp-stock"><span class="d"></span>In stock</span><img src="/assets/catalog/silver/7.jpg" alt="20 oz Scottsdale Long Cast Bar" loading="lazy"></div><div class="pdp-details"><div class="pdp-eyebrow">Silver</div><h1>20 oz Scottsdale Long Cast Bar</h1><p class="pdp-tag">Transparent spot-based pricing, fully insured &amp; discreet shipping, backed by our buyback guarantee.</p><div class="pdp-price"><div><div class="lbl">as low as</div><div class="amt">$1,543.66</div></div><div class="note">Locked when you order &mdash;<br>tracks the live spot price.</div></div><table class="spec-table"><tbody><tr><th>Metal</th><td>Silver</td></tr><tr><th>Weight</th><td>20 troy oz</td></tr><tr><th>Fineness</th><td>.999 fine</td></tr><tr><th>Mint / Maker</th><td>Scottsdale Mint</td></tr><tr><th>Form</th><td>Hand-poured cast bar</td></tr></tbody></table><div class="pdp-buy"><div class="qty"><button data-qminus type="button" aria-label="Decrease quantity">&minus;</button><input data-qty-input type="number" value="1" min="1" aria-label="Quantity"><button data-qplus type="button" aria-label="Increase quantity">+</button></div><button class="buy" data-add data-useqty data-name="20 oz Scottsdale Long Cast Bar" data-price="as low as $1,543.66" data-img="/assets/catalog/silver/7.jpg">Add to Cart</button></div><div class="pdp-assure"><span><b class="g">&#9670;</b> Free insured shipping over $199</span><span><b class="g">&#9670;</b> Buyback guarantee</span><span><b class="g">&#9670;</b> Discreet, signature-required delivery</span></div><div class="pdp-orcall">Prefer to order by phone? Call <a href="tel:8505851115">(850)&nbsp;585-1115</a> &mdash; a real person, every time.</div></div></div></div><div class="wrap" style="padding-top:26px"><div class="card"><section><h2><span class="dot">&#9670;</span>How ordering works</h2><div class="steps"><div class="step"><div class="n">1</div><div><h3>Add to cart &amp; check out</h3><p>Your price is locked against live spot the moment you confirm your order.</p></div></div><div class="step"><div class="n">2</div><div><h3>Pay your way</h3><p>Major card, bank wire, or personal check &mdash; wire &amp; check orders save vs. card.</p></div></div><div class="step"><div class="n">3</div><div><h3>Insured, discreet delivery</h3><p>Plain, unmarked, signature-required and insured door to door.</p></div></div></div></section></div><div style="margin-top:30px"><h2 style="font-family:'Cinzel',serif;color:var(--navy);font-size:20px;margin-bottom:16px">More in Silver</h2><div class="pgrid"><div class="pcard"><a class="pcard-link" href="/p/1-kilo-tombstone-silver-nugget.html" title="View details"><div class="pimg"><img src="/assets/catalog/silver/0.jpg" alt="1 Kilo Tombstone Silver Nugget" loading="lazy"></div></a><div class="pinfo"><a class="pcard-tl" href="/p/1-kilo-tombstone-silver-nugget.html"><h3>1 Kilo Tombstone Silver Nugget</h3></a><div class="pprice">as low as <b>$2,482.82</b></div><button class="pc-add" data-add data-name="1 Kilo Tombstone Silver Nugget" data-price="as low as $2,482.82" data-img="/assets/catalog/silver/0.jpg">Add to Cart</button></div></div><div class="pcard"><a class="pcard-link" href="/p/1-oz-american-silver-eagle-random-years.html" title="View details"><div class="pimg"><img src="/assets/catalog/silver/1.jpg" alt="1 oz American Silver Eagle (Random Years)" loading="lazy"></div></a><div class="pinfo"><a class="pcard-tl" href="/p/1-oz-american-silver-eagle-random-years.html"><h3>1 oz American Silver Eagle (Random Years)</h3></a><div class="pprice">as low as <b>$82.67</b></div><button class="pc-add" data-add data-name="1 oz American Silver Eagle (Random Years)" data-price="as low as $82.67" data-img="/assets/catalog/silver/1.jpg">Add to Cart</button></div></div><div class="pcard"><a class="pcard-link" href="/p/10-oz-scottsdale-chunky-cast-bar.html" title="View details"><div class="pimg"><img src="/assets/catalog/silver/2.jpg" alt="10 oz Scottsdale “Chunky” Cast Bar" loading="lazy"></div></a><div class="pinfo"><a class="pcard-tl" href="/p/10-oz-scottsdale-chunky-cast-bar.html"><h3>10 oz Scottsdale “Chunky” Cast Bar</h3></a><div class="pprice">as low as <b>$783.33</b></div><button class="pc-add" data-add data-name="10 oz Scottsdale “Chunky” Cast Bar" data-price="as low as $783.33" data-img="/assets/catalog/silver/2.jpg">Add to Cart</button></div></div><div class="pcard"><a class="pcard-link" href="/p/10-oz-tombstone-silver-nugget.html" title="View details"><div class="pimg"><img src="/assets/catalog/silver/3.jpg" alt="10 oz Tombstone Silver Nugget" loading="lazy"></div></a><div class="pinfo"><a class="pcard-tl" href="/p/10-oz-tombstone-silver-nugget.html"><h3>10 oz Tombstone Silver Nugget</h3></a><div class="pprice">as low as <b>$772.73</b></div><button class="pc-add" data-add data-name="10 oz Tombstone Silver Nugget" data-price="as low as $772.73" data-img="/assets/catalog/silver/3.jpg">Add to Cart</button></div></div></div></div></div>
   <footer class="foot"><div class="foot-in">
     <div class="foot-grid">
       <div>
@@ -200,5 +242,51 @@
       <span><a href="/">Return to homepage</a></span>
     </div>
   </div></footer>
+  <div class="cart-ov" data-cart-ov></div>
+  <aside class="cart-drawer" data-cart-drawer aria-label="Shopping cart">
+    <div class="cart-head"><h3>Your Cart</h3><button data-cart-close aria-label="Close cart">&times;</button></div>
+    <div class="cart-body" data-cart-body></div>
+    <div class="cart-foot">
+      <div class="cart-subline"><span data-cart-sub><b>0</b> items in cart</span><span>Spot-based pricing</span></div>
+      <a class="cart-checkout" data-checkout href="#">Proceed to Checkout</a>
+      <div class="cart-foot-note">Secure card &amp; bank-wire checkout. Prefer the phone? Call (850)&nbsp;585-1115 to order today.</div>
+    </div>
+  </aside>
+<script>
+(function(){
+  var KEY='bcb_cart';
+  function get(){try{return JSON.parse(localStorage.getItem(KEY))||[]}catch(e){return[]}}
+  function save(c){localStorage.setItem(KEY,JSON.stringify(c));render();}
+  function count(){return get().reduce(function(n,i){return n+i.qty},0)}
+  function esc(s){return (s||'').toString().replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')}
+  function add(name,price,img,qty){var c=get();var e=c.find(function(i){return i.name===name});if(e){e.qty+=qty}else{c.push({name:name,price:price,img:img,qty:qty})}save(c);toast('Added to cart');openD();}
+  function setQty(name,q){var c=get();var e=c.find(function(i){return i.name===name});if(e){e.qty=Math.max(1,q)}save(c);}
+  function remove(name){save(get().filter(function(i){return i.name!==name}));}
+  function render(){
+    var n=count();
+    document.querySelectorAll('[data-cart-count]').forEach(function(el){el.textContent=n;el.style.display=n>0?'flex':'none'});
+    var body=document.querySelector('[data-cart-body]');
+    if(body){var c=get();
+      body.innerHTML=c.length?c.map(function(i){return '<div class="cart-row"><img src="'+esc(i.img)+'" alt=""><div style="flex:1"><div class="cart-rn">'+esc(i.name)+'</div><div class="cart-rp">'+esc(i.price)+'</div><div class="cart-qty"><button data-dec="'+encodeURIComponent(i.name)+'">&minus;</button><span>'+i.qty+'</span><button data-inc="'+encodeURIComponent(i.name)+'">+</button><button class="cart-rm" data-rm="'+encodeURIComponent(i.name)+'">Remove</button></div></div></div>'}).join(''):'<div class="cart-empty">Your cart is empty.<br>Browse our gold &amp; silver to get started.</div>';}
+    var sub=document.querySelector('[data-cart-sub]');if(sub){sub.innerHTML='<b>'+n+'</b> item'+(n===1?'':'s')+' in cart';}
+  }
+  function openD(){var d=document.querySelector('[data-cart-drawer]'),o=document.querySelector('[data-cart-ov]');if(d)d.classList.add('open');if(o)o.classList.add('open');}
+  function closeD(){var d=document.querySelector('[data-cart-drawer]'),o=document.querySelector('[data-cart-ov]');if(d)d.classList.remove('open');if(o)o.classList.remove('open');}
+  function toast(m){var t=document.querySelector('.bcb-toast');if(!t){t=document.createElement('div');t.className='bcb-toast';document.body.appendChild(t);}t.textContent=m;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(function(){t.classList.remove('show')},2000);}
+  document.addEventListener('click',function(e){
+    var el;
+    if(el=e.target.closest('[data-add]')){e.preventDefault();var q=1;if(el.hasAttribute('data-useqty')){var qi=document.querySelector('[data-qty-input]');q=qi?Math.max(1,parseInt(qi.value)||1):1;}add(el.getAttribute('data-name'),el.getAttribute('data-price'),el.getAttribute('data-img'),q);return;}
+    if(e.target.closest('[data-cart-open]')){e.preventDefault();render();openD();return;}
+    if(e.target.closest('[data-cart-close]')||e.target.matches('[data-cart-ov]')){closeD();return;}
+    if(el=e.target.closest('[data-rm]')){remove(decodeURIComponent(el.getAttribute('data-rm')));return;}
+    if(el=e.target.closest('[data-inc]')){var n1=decodeURIComponent(el.getAttribute('data-inc'));var i1=get().find(function(i){return i.name===n1});setQty(n1,(i1?i1.qty:1)+1);return;}
+    if(el=e.target.closest('[data-dec]')){var n2=decodeURIComponent(el.getAttribute('data-dec'));var i2=get().find(function(i){return i.name===n2});if(i2&&i2.qty<=1){remove(n2);}else{setQty(n2,(i2?i2.qty:1)-1);}return;}
+    if(e.target.closest('[data-qplus]')){var qp=document.querySelector('[data-qty-input]');if(qp)qp.value=Math.max(1,(parseInt(qp.value)||1)+1);return;}
+    if(e.target.closest('[data-qminus]')){var qm=document.querySelector('[data-qty-input]');if(qm)qm.value=Math.max(1,(parseInt(qm.value)||1)-1);return;}
+    if(e.target.closest('[data-checkout]')){e.preventDefault();toast('Secure online checkout is coming soon');return;}
+  });
+  if(document.readyState!=='loading')render();else document.addEventListener('DOMContentLoaded',render);
+})();
+</script>
 </body>
 </html>
