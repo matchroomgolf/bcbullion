@@ -118,10 +118,10 @@ CSS += """
   .crumb span{color:#C0B69E;margin:0 8px}
   .pdp-top{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
   .pdp-figure{position:relative;background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px;box-shadow:0 16px 40px rgba(14,27,44,.08);overflow:hidden}
-  .pdp-figure img{width:100%;height:auto;max-height:430px;object-fit:contain;display:block;filter:drop-shadow(0 14px 22px rgba(14,27,44,.14));transition:transform .55s cubic-bezier(.2,.7,.2,1)}
+  .pdp-figure img{width:100%;height:auto;max-height:430px;object-fit:contain;display:block;transition:transform .55s cubic-bezier(.2,.7,.2,1)}
   .pdp-figure:hover img{transform:scale(1.07)}
-  .pdp-badge{position:absolute;top:16px;left:16px;background:var(--navy);color:var(--gold-soft);font-size:10.5px;letter-spacing:1.3px;text-transform:uppercase;font-weight:700;padding:6px 12px;border-radius:20px}
-  .pdp-stock{position:absolute;top:18px;right:18px;display:flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:.5px;color:#2E9B66}
+  .pdp-badge{position:absolute;top:16px;left:16px;background:var(--navy);color:var(--gold-soft);font-size:10.5px;letter-spacing:1.3px;text-transform:uppercase;font-weight:700;padding:6px 12px;border-radius:20px;border:1px solid rgba(201,162,74,.55);box-shadow:0 1px 6px rgba(0,0,0,.18)}
+  .pdp-stock{position:absolute;top:18px;right:18px;display:flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:.5px;color:#37b277;text-shadow:0 1px 3px rgba(0,0,0,.35)}
   .pdp-stock .d{width:7px;height:7px;border-radius:50%;background:#2E9B66}
   .pdp-eyebrow{font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-deep);font-weight:700;margin-bottom:11px}
   .pdp-details h1{font-family:'Cinzel',serif;font-weight:700;font-size:clamp(25px,3.2vw,34px);color:var(--navy);line-height:1.13;margin-bottom:13px}
@@ -572,14 +572,16 @@ def product_page(p):
     sep='<span>&rsaquo;</span>'
     crumb=f'<div class="crumb"><a href="/">Home</a>{sep}<a href="/{cat}.html">{catlbl}</a>{sep}{title}</div>'
     images=[u for u in (p.get('gallery') or [p.get('image','')]) if u]
+    bgs=p.get('gallery_bgs') or []
     main=images[0] if images else ''
-    figure=(f'<div class="pdp-figure"><span class="pdp-badge">{badge}</span>'
+    main_bg=bgs[0] if bgs else '#fff'
+    figure=(f'<div class="pdp-figure" id="pdpFig" style="background:{main_bg}"><span class="pdp-badge">{badge}</span>'
             f'<span class="pdp-stock"><span class="d"></span>In stock</span>'
             f'<img id="pdpMain" src="{esc(main)}" alt="{title}" loading="lazy"></div>')
     thumbs=''
     if len(images)>1:
         thumbs='<div class="pdp-thumbs">'+''.join(
-            f'<button class="pdp-thumb{" active" if i==0 else ""}" type="button" onclick="pdpSwap(this,\'{esc(u)}\')">'
+            f'<button class="pdp-thumb{" active" if i==0 else ""}" type="button" data-bg="{bgs[i] if i<len(bgs) else main_bg}" onclick="pdpSwap(this,\'{esc(u)}\')">'
             f'<img src="{esc(u)}" alt="{title} view {i+1}" loading="lazy"></button>' for i,u in enumerate(images))+'</div>'
     fig=f'<div class="pdp-figwrap">{figure}{thumbs}</div>'
     rows=''.join(f'<tr><th>{esc(k)}</th><td>{esc(sp[k])}</td></tr>' for k in SPEC_ORDER if k in sp)
@@ -612,7 +614,7 @@ def product_page(p):
         cards=''.join(pcard(q) for q in rel)
         related=(f'<div style="margin-top:30px"><h2 style="font-family:\'Cinzel\',serif;color:var(--navy);font-size:20px;margin-bottom:16px">More in {catlbl}</h2>'
                  f'<div class="pgrid">{cards}</div></div>')
-    swap_js='' if len(images)<=1 else "<script>function pdpSwap(b,s){var m=document.getElementById('pdpMain');if(m){m.src=s;}b.parentNode.querySelectorAll('.pdp-thumb').forEach(function(t){t.classList.remove('active');});b.classList.add('active');}</script>"
+    swap_js='' if len(images)<=1 else "<script>function pdpSwap(b,s){var m=document.getElementById('pdpMain');if(m){m.src=s;}var f=document.getElementById('pdpFig');if(f&&b.getAttribute('data-bg')){f.style.background=b.getAttribute('data-bg');}b.parentNode.querySelectorAll('.pdp-thumb').forEach(function(t){t.classList.remove('active');});b.classList.add('active');}</script>"
     body=f'{top}<div class="wrap" style="padding-top:26px"><div class="card">{desc_html}{how}</div>{related}</div>{swap_js}'
     metatxt=esc(f'{p["title"]} — {fine} {metal.lower()} from B.C. Bullion. Spot-based pricing, insured discreet shipping, buyback guarantee.')
     return page(title, metatxt, 'shop', '', body)
