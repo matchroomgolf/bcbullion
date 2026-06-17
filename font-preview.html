@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Body Font Preview | B.C. Bullion</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#F6F2E9;--navy:#0E1B2C;--navy2:#0A1422;--gold:#C6A04A;--gold-soft:#F0D89B;--gold-deep:#A8842F;--ink:#2A2A24;--line:#ECE4D2;--muted:#6E6A5C;
+        --bf:'Inter',system-ui,-apple-system,sans-serif;}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--cream);color:var(--ink);font-family:var(--bf);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .cinzel{font-family:'Cinzel',serif}
+  /* ---- top bar + switcher (sticky) ---- */
+  .bar{position:sticky;top:0;z-index:20;background:rgba(14,27,44,.97);backdrop-filter:blur(10px);border-bottom:1px solid rgba(198,160,74,.25);color:var(--cream)}
+  .bar-in{max-width:760px;margin:0 auto;padding:13px 18px}
+  .bar h1{font-family:'Cinzel',serif;font-size:15px;font-weight:700;letter-spacing:.4px;color:var(--gold-soft);margin-bottom:11px;display:flex;align-items:center;gap:8px}
+  .bar h1 b{color:var(--cream)}
+  .switch{display:flex;gap:8px;flex-wrap:wrap}
+  .switch button{flex:1 1 0;min-width:96px;border:1px solid rgba(198,160,74,.4);background:rgba(255,255,255,.05);color:var(--cream);font-family:inherit;font-size:13px;font-weight:600;padding:10px 8px;border-radius:9px;cursor:pointer;transition:.18s;line-height:1.2}
+  .switch button .nm{display:block;font-size:13.5px}
+  .switch button .sub{display:block;font-size:10.5px;opacity:.7;font-weight:500;margin-top:2px}
+  .switch button.on{background:linear-gradient(135deg,var(--gold-soft),var(--gold) 60%,#9C7A2E);color:var(--navy);border-color:transparent}
+  .switch button.on .sub{opacity:.85}
+  /* ---- now-showing label ---- */
+  .now{max-width:760px;margin:0 auto;padding:16px 18px 4px}
+  .now .lab{font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:var(--gold-deep);font-weight:700}
+  .now .desc{font-size:14px;color:var(--muted);margin-top:4px}
+  /* ---- the product preview ---- */
+  .wrap{max-width:760px;margin:0 auto;padding:14px 18px 60px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 14px 36px rgba(14,27,44,.07)}
+  .fig{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;align-items:center;justify-content:center;margin-bottom:22px}
+  .fig img{max-width:78%;max-height:300px;object-fit:contain;display:block;border-radius:8px}
+  .crumb{font-size:12.5px;color:#8A8270;margin-bottom:14px}
+  .crumb b{color:var(--gold-deep);font-weight:600}
+  .eyebrow{font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-deep);font-weight:700;margin-bottom:10px}
+  h2.title{font-family:'Cinzel',serif;font-weight:700;font-size:clamp(24px,7vw,32px);color:var(--navy);line-height:1.1;letter-spacing:.3px;margin-bottom:14px}
+  .tag{font-size:15.5px;color:#54503F;margin-bottom:22px;line-height:1.55}
+  .price{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0;margin-bottom:24px}
+  .price .lbl{font-size:11px;text-transform:uppercase;letter-spacing:1.4px;color:#8A7E66;margin-bottom:5px}
+  .price .amt{font-weight:700;font-size:30px;color:var(--navy);font-variant-numeric:tabular-nums;line-height:1}
+  .price .note{font-size:12px;color:#8A8270;text-align:right;line-height:1.4;padding-top:2px}
+  table{width:100%;border-collapse:collapse;margin-bottom:24px}
+  th,td{text-align:left;padding:13px 0;border-bottom:1px solid var(--line);font-size:14px;vertical-align:top}
+  tr:last-child th,tr:last-child td{border-bottom:0}
+  th{color:#857C68;font-weight:500;width:38%;letter-spacing:.2px}
+  td{color:var(--navy);font-weight:600}
+  .buyrow{display:flex;gap:11px;margin-bottom:14px}
+  .qty{display:flex;align-items:center;border:1px solid #DCCFB2;border-radius:12px;overflow:hidden;background:#fff;flex-shrink:0;min-height:54px}
+  .qty button{width:42px;align-self:stretch;border:0;background:#fff;font-size:18px;color:var(--navy);cursor:pointer;font-family:inherit}
+  .qty span{min-width:34px;text-align:center;font-weight:700;color:var(--navy)}
+  .buy{flex:1;border:0;cursor:pointer;background:linear-gradient(135deg,var(--gold-soft),var(--gold) 55%,#9C7A2E);color:var(--navy);font-weight:700;font-size:16px;border-radius:12px;letter-spacing:.3px;min-height:54px;font-family:inherit}
+  .assure{font-size:12.5px;color:#6E6A5C;display:flex;flex-wrap:wrap;gap:9px 18px;padding-top:16px;margin-top:4px;border-top:1px solid var(--line)}
+  .assure span{display:flex;align-items:center;gap:6px}.assure .g{color:var(--gold-deep);font-size:9px}
+  .sect{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+  .sect h3{font-family:'Cinzel',serif;font-size:19px;color:var(--navy);font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:9px}
+  .sect h3 .d{color:var(--gold);font-size:12px}
+  .sect p{font-size:15px;color:#54503F;line-height:1.65;margin-bottom:12px}
+  .sect p:last-child{margin-bottom:0}
+  .steps{display:flex;flex-direction:column;gap:12px}
+  .step{display:flex;gap:14px;align-items:flex-start;background:#FBF8F1;border:1px solid var(--line);border-radius:12px;padding:15px 16px}
+  .step .n{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--gold-soft),var(--gold) 60%,#9C7A2E);color:var(--navy);font-family:'Cinzel',serif;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:14px}
+  .step h4{font-size:15px;font-weight:600;color:var(--navy);margin-bottom:2px}
+  .step p{font-size:13.5px;color:#6E6A5C;margin:0;line-height:1.5}
+  .foot{max-width:760px;margin:0 auto;padding:8px 18px 50px;font-size:13px;color:var(--muted);line-height:1.6}
+  .foot a{color:var(--gold-deep);font-weight:600}
+  .foot .sohne{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:16px}
+</style>
+</head>
+<body>
+  <div class="bar"><div class="bar-in">
+    <h1>Body font preview <b>· B.C. Bullion</b></h1>
+    <div class="switch" id="switch">
+      <button data-f="'Inter',system-ui,sans-serif" data-name="Inter" data-desc="Clean, ubiquitous UI sans — what the site uses today. Safe, but the common &ldquo;modern web&rdquo; default." class="on"><span class="nm">Inter</span><span class="sub">current</span></button>
+      <button data-f="'Source Sans 3',sans-serif" data-name="Source Sans 3" data-desc="Humanist sans (Adobe). A touch warmer and friendlier than Inter, still highly legible."><span class="nm">Source Sans&nbsp;3</span><span class="sub">humanist</span></button>
+      <button data-f="'Public Sans',sans-serif" data-name="Public Sans" data-desc="U.S. design-system sans. Neutral and official with a little more backbone than Inter."><span class="nm">Public Sans</span><span class="sub">official</span></button>
+    </div>
+  </div></div>
+
+  <div class="now">
+    <div class="lab">Now showing · <span id="fname">Inter</span></div>
+    <div class="desc" id="fdesc">Clean, ubiquitous UI sans — what the site uses today. Safe, but the common &ldquo;modern web&rdquo; default.</div>
+  </div>
+
+  <div class="wrap">
+    <div class="card">
+      <div class="fig"><img src="/assets/catalog/gold/2.jpg" alt="1 oz Scottsdale Gold Bar"></div>
+      <div class="crumb">Home › <b>Gold</b> › 1 oz. Scottsdale Gold Bar</div>
+      <div class="eyebrow">Gold</div>
+      <h2 class="title">1 oz. Scottsdale Gold Bar</h2>
+      <p class="tag">Transparent spot-based pricing, fully insured &amp; discreet shipping, backed by our buyback guarantee.</p>
+      <div class="price">
+        <div><div class="lbl">As low as</div><div class="amt">$4,420.56</div></div>
+        <div class="note">Locked when you order —<br>tracks the live spot price.</div>
+      </div>
+      <table><tbody>
+        <tr><th>Metal</th><td>Gold</td></tr>
+        <tr><th>Weight</th><td>1 troy oz</td></tr>
+        <tr><th>Fineness</th><td>.9999 fine</td></tr>
+        <tr><th>Mint / Maker</th><td>Scottsdale Mint</td></tr>
+        <tr><th>Form</th><td>Minted bar</td></tr>
+      </tbody></table>
+      <div class="buyrow">
+        <div class="qty"><button type="button">−</button><span>1</span><button type="button">+</button></div>
+        <button class="buy" type="button">Add to Cart</button>
+      </div>
+      <div class="assure">
+        <span><b class="g">◆</b> Free insured shipping over $199</span>
+        <span><b class="g">◆</b> Buyback guarantee</span>
+        <span><b class="g">◆</b> Discreet, signature-required delivery</span>
+      </div>
+
+      <div class="sect">
+        <h3><span class="d">◆</span>About this product</h3>
+        <p>The Scottsdale Gold Bar is struck in <strong>.9999 fine gold</strong> and sealed in a tamper-evident Certi-Lock&reg; assay card with a unique serial number. It is a clean, liquid way to own an ounce — instantly recognizable, easy to verify, and simple to resell whenever you choose.</p>
+        <p>Every order ships fully insured in plain, unmarked packaging with signature required on delivery, and our standing buyback offer means you always have a fair, live-market exit. This paragraph is here on purpose — it is the running body text where the font choice actually shows: read it on your phone and see which one feels easiest and most premium.</p>
+      </div>
+
+      <div class="sect">
+        <h3><span class="d">◆</span>How ordering works</h3>
+        <div class="steps">
+          <div class="step"><div class="n">1</div><div><h4>Add to cart &amp; check out</h4><p>Your price is locked against live spot the moment you confirm your order.</p></div></div>
+          <div class="step"><div class="n">2</div><div><h4>Pay your way</h4><p>Major card, bank wire, or personal check — wire &amp; check orders save vs. card.</p></div></div>
+          <div class="step"><div class="n">3</div><div><h4>Insured, discreet delivery</h4><p>Plain, unmarked, signature-required and insured door to door.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="sohne"><strong>Note on the third option (Söhne).</strong> Söhne is a <em>paid</em> typeface, so it cannot be web-loaded for free and is not in the live toggle above. If you like the idea of a premium grotesque, say the word and I will mock it up with a licensed copy. Headings stay <span class="cinzel" style="font-size:15px;color:var(--navy)">Cinzel</span> in every version — only the body font changes.</div>
+    &larr; <a href="/">Back to B.C. Bullion</a>
+  </div>
+
+  <script>
+    var sw=document.getElementById('switch'), fname=document.getElementById('fname'), fdesc=document.getElementById('fdesc');
+    sw.addEventListener('click',function(e){
+      var b=e.target.closest('button'); if(!b) return;
+      document.documentElement.style.setProperty('--bf', b.getAttribute('data-f'));
+      sw.querySelectorAll('button').forEach(function(x){x.classList.remove('on');});
+      b.classList.add('on');
+      fname.textContent=b.getAttribute('data-name');
+      fdesc.innerHTML=b.getAttribute('data-desc');
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+  </script>
+</body>
+</html>
