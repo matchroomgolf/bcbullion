@@ -164,6 +164,23 @@ FOOTER = f"""  <footer class="foot"><div class="foot-in">
     </div>
   </div></footer>"""
 
+def seo_head(title,desc):
+    t=title+' | B.C. Bullion'
+    org=('{"@context":"https://schema.org","@type":"Organization","name":"B.C. Bullion",'
+         '"url":"https://bcbullion.vercel.app/","logo":"https://bcbullion.vercel.app/assets/logo.png",'
+         '"email":"hello@bcbullion.com","telephone":"+1-850-585-1115",'
+         '"sameAs":["https://instagram.com/bcbullion","https://twitter.com/bcbullion"]}')
+    return ('<meta property="og:type" content="website">\n'
+            '<meta property="og:site_name" content="B.C. Bullion">\n'
+            '<meta property="og:title" content="'+t+'">\n'
+            '<meta property="og:description" content="'+desc+'">\n'
+            '<meta property="og:image" content="https://bcbullion.vercel.app/assets/icons/icon-512.png">\n'
+            '<meta name="twitter:card" content="summary_large_image">\n'
+            '<meta name="twitter:title" content="'+t+'">\n'
+            '<meta name="twitter:description" content="'+desc+'">\n'
+            '<meta name="twitter:image" content="https://bcbullion.vercel.app/assets/icons/icon-512.png">\n'
+            '<script type="application/ld+json">'+org+'</script>')
+
 def page(title,desc,active,band_html,body_html):
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -172,6 +189,7 @@ def page(title,desc,active,band_html,body_html):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title} | B.C. Bullion</title>
 <meta name="description" content="{desc}">
+{seo_head(title,desc)}
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16.png">
@@ -256,14 +274,38 @@ contact_body = """  <div class="wrap">
       <section>
         <h2><span class="dot">&#9670;</span>Send us a message</h2>
         <p>Tell us what you&rsquo;re looking for &mdash; a specific coin or bar, a buyback quote, or help getting started. We&rsquo;ll get right back to you.</p>
-        <form class="frm" onsubmit="event.preventDefault();var f=this;var subj=encodeURIComponent('Website inquiry from '+f.nm.value);var body=encodeURIComponent(f.msg.value+'\\n\\nName: '+f.nm.value+'\\nReply to: '+f.em.value);window.location.href='mailto:hello@bcbullion.com?subject='+subj+'&body='+body;">
+        <form class="frm" id="cform" novalidate>
           <div class="row">
-            <div><label>Your name</label><input name="nm" required placeholder="Jane Smith"></div>
-            <div><label>Email</label><input name="em" type="email" required placeholder="you@example.com"></div>
+            <div><label for="cf-name">Your name</label><input id="cf-name" name="name" required placeholder="Jane Smith"></div>
+            <div><label for="cf-email">Email</label><input id="cf-email" name="email" type="email" required placeholder="you@example.com"></div>
           </div>
-          <div><label>Message</label><textarea name="msg" rows="5" required placeholder="I'm interested in&hellip;"></textarea></div>
-          <button type="submit">Send message</button>
+          <div><label for="cf-msg">Message</label><textarea id="cf-msg" name="message" rows="5" required placeholder="I'm interested in&hellip;"></textarea></div>
+          <button type="submit" id="cf-btn">Send message</button>
+          <p id="cf-status" role="status" aria-live="polite" style="margin:6px 0 0;font-size:14px;line-height:1.5;display:none"></p>
         </form>
+        <script>
+        (function(){
+          var f=document.getElementById('cform'); if(!f) return;
+          var btn=document.getElementById('cf-btn'), st=document.getElementById('cf-status'), orig='Send message';
+          var fb='Please call <a class="inline" href="tel:8505851115">(850)&nbsp;585-1115</a> or email <a class="inline" href="mailto:hello@bcbullion.com">hello@bcbullion.com</a> and a real person will take care of you.';
+          function show(m,c){ st.style.display='block'; st.style.color=c; st.innerHTML=m; }
+          f.addEventListener('submit',function(e){
+            e.preventDefault();
+            var name=document.getElementById('cf-name').value.trim();
+            var email=document.getElementById('cf-email').value.trim();
+            var message=document.getElementById('cf-msg').value.trim();
+            if(!name||!email||!message){ show('Please add your name, email, and a message.','#A11D22'); return; }
+            btn.disabled=true; btn.textContent='Sending…'; show('','#6E6A5C');
+            fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:name,email:email,message:message})})
+              .then(function(r){ return r.json().catch(function(){return {};}).then(function(d){ return r.ok&&d&&d.ok; }); })
+              .then(function(ok){
+                if(ok){ f.reset(); btn.textContent='Sent ✓'; show('Thank you — your message is on its way. We will reply within one business day.','#2E7D54'); }
+                else { btn.disabled=false; btn.textContent=orig; show('We could not send that just now. '+fb,'#A11D22'); }
+              })
+              .catch(function(){ btn.disabled=false; btn.textContent=orig; show('We could not send that just now. '+fb,'#A11D22'); });
+          });
+        })();
+        </script>
         <p style="margin-top:16px;font-size:13px;color:#6E6A5C">Prefer the phone? Call <a class="inline" href="tel:8505851115">(850)&nbsp;585-1115</a> &mdash; a real person, every time.</p>
       </section>
       <section>
