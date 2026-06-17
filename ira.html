@@ -147,6 +147,7 @@
   .pdp-price .note{font-size:11.5px;color:#8A8270;text-align:right;line-height:1.45}
   .spec-table{width:100%;border-collapse:collapse;margin-bottom:24px}
   .spec-table th,.spec-table td{text-align:left;padding:9px 2px;border-bottom:1px solid var(--line);font-size:13.8px;vertical-align:top}
+  .spec-table tr:last-child th,.spec-table tr:last-child td{border-bottom:0}
   .spec-table th{color:#8A8270;font-weight:600;width:44%;letter-spacing:.2px}
   .spec-table td{color:var(--navy);font-weight:600}
   .pdp-cta{display:flex;flex-wrap:wrap;gap:11px;margin-bottom:14px}
@@ -195,6 +196,12 @@
   .pdp-buy .buy{flex:1;border:0;cursor:pointer;background:linear-gradient(135deg,var(--gold-soft),var(--gold) 55%,#9C7A2E);color:var(--navy);font-weight:700;font-size:15.5px;border-radius:10px;letter-spacing:.3px}
   .pdp-orcall{font-size:12.5px;color:#6E6A5C;margin-top:2px}.pdp-orcall a{color:#8A6D24;font-weight:600;text-decoration:none}
   @media(max-width:760px){.cart-drawer{width:100%}}
+
+  .pdp-thumbs{display:flex;gap:9px;margin-top:12px;flex-wrap:wrap}
+  .pdp-thumb{width:60px;height:60px;border:1px solid var(--line);border-radius:8px;background:#fff;cursor:pointer;padding:4px;overflow:hidden;transition:border-color .2s,box-shadow .2s}
+  .pdp-thumb img{width:100%;height:100%;object-fit:contain;display:block}
+  .pdp-thumb:hover{border-color:var(--gold-deep)}
+  .pdp-thumb.active{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}
 </style>
 </head>
 <body>

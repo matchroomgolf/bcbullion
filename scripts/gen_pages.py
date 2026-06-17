@@ -132,6 +132,7 @@ CSS += """
   .pdp-price .note{font-size:11.5px;color:#8A8270;text-align:right;line-height:1.45}
   .spec-table{width:100%;border-collapse:collapse;margin-bottom:24px}
   .spec-table th,.spec-table td{text-align:left;padding:9px 2px;border-bottom:1px solid var(--line);font-size:13.8px;vertical-align:top}
+  .spec-table tr:last-child th,.spec-table tr:last-child td{border-bottom:0}
   .spec-table th{color:#8A8270;font-weight:600;width:44%;letter-spacing:.2px}
   .spec-table td{color:var(--navy);font-weight:600}
   .pdp-cta{display:flex;flex-wrap:wrap;gap:11px;margin-bottom:14px}
@@ -182,6 +183,14 @@ CSS += """
   .pdp-buy .buy{flex:1;border:0;cursor:pointer;background:linear-gradient(135deg,var(--gold-soft),var(--gold) 55%,#9C7A2E);color:var(--navy);font-weight:700;font-size:15.5px;border-radius:10px;letter-spacing:.3px}
   .pdp-orcall{font-size:12.5px;color:#6E6A5C;margin-top:2px}.pdp-orcall a{color:#8A6D24;font-weight:600;text-decoration:none}
   @media(max-width:760px){.cart-drawer{width:100%}}
+"""
+# ---- PDP image gallery (thumbnails) ----
+CSS += """
+  .pdp-thumbs{display:flex;gap:9px;margin-top:12px;flex-wrap:wrap}
+  .pdp-thumb{width:60px;height:60px;border:1px solid var(--line);border-radius:8px;background:#fff;cursor:pointer;padding:4px;overflow:hidden;transition:border-color .2s,box-shadow .2s}
+  .pdp-thumb img{width:100%;height:100%;object-fit:contain;display:block}
+  .pdp-thumb:hover{border-color:var(--gold-deep)}
+  .pdp-thumb.active{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}
 """
 
 def header(active):
@@ -562,9 +571,17 @@ def product_page(p):
     badge=' &middot; '.join([x for x in [esc(metal), esc(fine).replace(' fine','')] if x]) or 'B.C. Bullion'
     sep='<span>&rsaquo;</span>'
     crumb=f'<div class="crumb"><a href="/">Home</a>{sep}<a href="/{cat}.html">{catlbl}</a>{sep}{title}</div>'
-    fig=(f'<div class="pdp-figure"><span class="pdp-badge">{badge}</span>'
-         f'<span class="pdp-stock"><span class="d"></span>In stock</span>'
-         f'<img src="{esc(p.get("image",""))}" alt="{title}" loading="lazy"></div>')
+    images=[u for u in (p.get('gallery') or [p.get('image','')]) if u]
+    main=images[0] if images else ''
+    figure=(f'<div class="pdp-figure"><span class="pdp-badge">{badge}</span>'
+            f'<span class="pdp-stock"><span class="d"></span>In stock</span>'
+            f'<img id="pdpMain" src="{esc(main)}" alt="{title}" loading="lazy"></div>')
+    thumbs=''
+    if len(images)>1:
+        thumbs='<div class="pdp-thumbs">'+''.join(
+            f'<button class="pdp-thumb{" active" if i==0 else ""}" type="button" onclick="pdpSwap(this,\'{esc(u)}\')">'
+            f'<img src="{esc(u)}" alt="{title} view {i+1}" loading="lazy"></button>' for i,u in enumerate(images))+'</div>'
+    fig=f'<div class="pdp-figwrap">{figure}{thumbs}</div>'
     rows=''.join(f'<tr><th>{esc(k)}</th><td>{esc(sp[k])}</td></tr>' for k in SPEC_ORDER if k in sp)
     spec=f'<table class="spec-table"><tbody>{rows}</tbody></table>' if rows else ''
     pblock=(f'<div class="pdp-price"><div><div class="lbl">{pre}</div><div class="amt">{amt}</div></div>'
@@ -595,7 +612,8 @@ def product_page(p):
         cards=''.join(pcard(q) for q in rel)
         related=(f'<div style="margin-top:30px"><h2 style="font-family:\'Cinzel\',serif;color:var(--navy);font-size:20px;margin-bottom:16px">More in {catlbl}</h2>'
                  f'<div class="pgrid">{cards}</div></div>')
-    body=f'{top}<div class="wrap" style="padding-top:26px"><div class="card">{desc_html}{how}</div>{related}</div>'
+    swap_js='' if len(images)<=1 else "<script>function pdpSwap(b,s){var m=document.getElementById('pdpMain');if(m){m.src=s;}b.parentNode.querySelectorAll('.pdp-thumb').forEach(function(t){t.classList.remove('active');});b.classList.add('active');}</script>"
+    body=f'{top}<div class="wrap" style="padding-top:26px"><div class="card">{desc_html}{how}</div>{related}</div>{swap_js}'
     metatxt=esc(f'{p["title"]} — {fine} {metal.lower()} from B.C. Bullion. Spot-based pricing, insured discreet shipping, buyback guarantee.')
     return page(title, metatxt, 'shop', '', body)
 
