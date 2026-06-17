@@ -271,11 +271,11 @@ def seo_head(title,desc):
             '<meta property="og:site_name" content="B.C. Bullion">\n'
             '<meta property="og:title" content="'+t+'">\n'
             '<meta property="og:description" content="'+desc+'">\n'
-            '<meta property="og:image" content="https://bcbullion.vercel.app/assets/icons/icon-512.png">\n'
+            '<meta property="og:image" content="https://bcbullion.vercel.app/assets/og-card.png">\n'
             '<meta name="twitter:card" content="summary_large_image">\n'
             '<meta name="twitter:title" content="'+t+'">\n'
             '<meta name="twitter:description" content="'+desc+'">\n'
-            '<meta name="twitter:image" content="https://bcbullion.vercel.app/assets/icons/icon-512.png">\n'
+            '<meta name="twitter:image" content="https://bcbullion.vercel.app/assets/og-card.png">\n'
             '<script type="application/ld+json">'+org+'</script>')
 
 CART_DRAWER = """  <div class="cart-ov" data-cart-ov></div>
@@ -337,6 +337,7 @@ def page(title,desc,active,band_html,body_html):
 <title>{title} | B.C. Bullion</title>
 <meta name="description" content="{desc}">
 {seo_head(title,desc)}
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16.png">
